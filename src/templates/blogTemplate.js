@@ -35,7 +35,7 @@ export const Post = ({ content, frontmatter, previous, next, siteTitle, image, s
 			<PostContent content={content} className="container Post__content"/>				
 			<div className="wrapper-post">
 				<div className="Foot__Share">
-					<Share title={frontmatter.title} url={`https://dantecalderon.com/` + frontmatter.path}/>
+					<Share title={frontmatter.title} url={`https://yusadolat.me/` + frontmatter.path}/>
 				</div>
 				<div className="Foot__AuthorPost">				
 					<AuthorPostFooter
@@ -88,7 +88,7 @@ export default class BlogPostTemplate extends React.Component {
 						<SEO
 							title={ post.frontmatter.title }
 							url={ `${siteMetadata.siteUrl}/${post.frontmatter.path}` }
-							//image={`https://dantecalderon.com${post.fields.thumbnail.childImageSharp.responsiveSizes.src}`}
+							//image={`https://yusadolat.me${post.fields.thumbnail.childImageSharp.responsiveSizes.src}`}
 							description={ post.frontmatter.description }
 							isPost={ true }
 						/>
@@ -119,7 +119,7 @@ export default class BlogPostTemplate extends React.Component {
 								
 									<div id="disquser" className="container Disqus">
 										<ReactDisqusComments
-													shortname="dantecalderon"
+													shortname="yusadolat"
 													identifier={ post.frontmatter.path }
 													title={ post.frontmatter.title }
 													url={ this.state.location }/>
@@ -129,7 +129,7 @@ export default class BlogPostTemplate extends React.Component {
 									post.frontmatter.model === 'post' &&
 									<Share fixed show={ this.state.show_share }
 									 	title={post.frontmatter.title}
-										url={`https://dantecalderon.com/` + post.frontmatter.path}/>
+										url={`https://yusadolat.me/` + post.frontmatter.path}/>
 								}
 							</div>
 					</div>
