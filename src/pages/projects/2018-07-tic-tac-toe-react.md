@@ -1,8 +1,8 @@
 ---
 model: project
-title: Tic Tac Toe React
-subtitle: El clásico juego TicTacToe hecho con React.
-description: Juego TicTacToe hecho en React.
+title: React maze Game
+subtitle: Simple React maze Game.
+description: Simple React maze Game.
 path: portfolio/tic-tac-toe-game-react
 thumbnail: /img/tic-tac-toe-react-game.png
 date: '2018-06-20T22:26:20-05:00'
@@ -20,10 +20,10 @@ stack:
   - Sass
   - Webpack
 client: Personal
-repository: 'https://github.com/dantehemerson/TicTacToe'
+repository: 'https://github.com/Yusadolat/React-Maze-Game'
 licence: MIT
-website: 'https://github.com/dantehemerson/TicTacToe'
+website: 'https://github.com/Yusadolat/React-Maze-Game'
 ---
-Juego TicTacToe hecho en \[React](https://reactjs.org/)
+Simple Maze built with \[React](https://reactjs.org/)
 
-Espero que lo disfrutéis.
+#Cheer !

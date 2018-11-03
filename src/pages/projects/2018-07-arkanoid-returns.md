@@ -1,15 +1,15 @@
 ---
 model: project
 title: Arkanoid Returns
-subtitle: El clasico juego Arkanoid con nuevos features y con un nuevo diseño.
-description: Juego Arkanoid hecho en C++ con la libreria Allegro5
+subtitle: Coming Soon.
+description: Comning soon
 path: portfolio/arkanoid-returns-game
 thumbnail: /img/arkanoid-returns-game.png
 date: '2017-07-30T22:13:39-05:00'
 published: true
 style: normal-img
 tags:
-  - Arkanoid
+  - Bme
   - Game
   - C++ Game
 roles:
@@ -17,17 +17,14 @@ roles:
   - Game Tester
   - Game Designer
 stack:
-  - C++11
-  - Allegro5
-  - Paint
+  - Game
+  - Game
+  - Game
 client: Personal
-repository: 'https://github.com/dantehemerson/Arkanoid-Returns'
+repository: ''
 licence: MIT
 website: ''
 ---
-### Acerca del proyecto
-Juego Arkanoid hecho en C++ con la libreria [Allegro5](https://liballeg.org/)
-
+### Coming Soon
 #### Video Demo:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eWJqrwlSuI0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

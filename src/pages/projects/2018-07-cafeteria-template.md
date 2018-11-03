@@ -1,26 +1,26 @@
 ---
 model: project
-title: Cafeteria - Template
-subtitle: 'Un template para una cafetería, hecha con el framework Foundation.'
-description: 'Un template para una cafetería, hecha con el framework Foundation'
+title: WhatsApp Word Assistant
+subtitle: 'WhatsApp Word Assistant.'
+description: 'This is how to beat your grammarian friends who bombard you with jaw threatening words.'
 path: portfolio/cafeteria-template
 thumbnail: /img/cafeteria.png
 date: '2018-05-05T08:41:18-05:00'
 published: true
 style: normal-img
 tags:
-  - foundation
-  - html5
-  - template
+  - NodeJS
+  - HTML5
+  - Whatsapp
 roles:
-  - Fronted Developer
+  - Full Satck Developer
 stack:
-  - foundation
-  - html5
-  - css3
+  - NodeJS
+  - EXpressJS
+  - JAVASCRIPT
 client: Personal
-repository: 'https://github.com/dantehemerson/cafeteria/'
+repository: 'https://yusadolat.github.io/whatsbot'
 licence: MIT
-website: 'https://dantecalderon.github.io/cafeteria/'
+website: 'https://yusadolat.github.io/whatsbot'
 ---
-Un template para una cafetería, hecha con el framework [Foundation](https://foundation.zurb.com/)
+Your Whatsapp Word Assistan built with [NodeJS](https://nodejs.org/)
