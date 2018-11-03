@@ -1,10 +1,10 @@
 module.exports = {
    pathPrefix: `/`,
    siteMetadata: {
-      title: 'Dante Calderón',
-      author: 'Dante Calderón',
-      description: 'Dante Hemerson Calderón Vasquez, Programmer',
-      siteUrl: 'https://dantecalderon.com'
+      title: 'Yusuf Adeyemo',
+      author: 'Yusuf Adeyemo',
+      description: 'Yusuf Adeyemo - Full Stack Developer/ Devops Engineer',
+      siteUrl: 'https://yusadolat.me'
    },
    plugins: [
       'gatsby-plugin-react-helmet',
@@ -106,7 +106,7 @@ module.exports = {
       {
          resolve: `gatsby-plugin-manifest`,
          options: {
-            name: 'Dante Calderón',
+            name: 'Yusuf Adeyemo',
             short_name: 'Dante',
             start_url: '/',
             background_color: '#1976d2',
