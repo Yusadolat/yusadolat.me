@@ -119,7 +119,7 @@ export default class BlogPostTemplate extends React.Component {
 								
 									<div id="disquser" className="container Disqus">
 										<ReactDisqusComments
-													shortname="yusufadeyemo"
+													shortname="yusadolat"
 													identifier={ post.frontmatter.path }
 													title={ post.frontmatter.title }
 													url={ this.state.location }/>
