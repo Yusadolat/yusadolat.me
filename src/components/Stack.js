@@ -101,10 +101,10 @@ const groups = [
 export default props => (
 		<div className='Stack'>
 			<div className="">
-				<h2 className="Page__title">Mi Stack</h2>
+				<h2 className="Page__title">My Stack</h2>
 				{/*
 				<p className="About__description Page__description">
-					Hola,  soy Dante Calderón y programo en Python, por que Python es cool.
+					Hello, I'm Yusuf Adeyemo and I am an award winning Full Stack Web Developer and Devops Engineer.
 				</p>
 			*/}
 			</div>
