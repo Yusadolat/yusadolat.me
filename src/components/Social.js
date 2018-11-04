@@ -30,43 +30,43 @@ export default props => (
 	<SocialWrapper>
 		<SocialIcon
 			className="github--hover"
-			href="https://www.github.com/dantehemerson"
-			title="Github - Dante Calderón"
+			href="https://www.github.com/yusadolat"
+			title="Github - Yusuf Adeyemo"
 			target="_blank">
 			<img
 				alt="img"
 				src="https://icongr.am/fontawesome/github.svg?color=ffffff"
-				title="Github - Dante Calderón"/>
+				title="Github - Yusuf Adeyemo"/>
 		</SocialIcon>
 		<SocialIcon
 			className="twitter--hover"
-			href="https://twitter.com/dantehemerson"
-			title="Twitter - Dante Calderón"
+			href="https://twitter.com/yusadolat"
+			title="Twitter - Yusuf Adeyemo"
 			target="_blank">
 			<img
 				alt="img"
 				src="https://icongr.am/fontawesome/twitter.svg?color=ffffff"
-				title="Twitter - Dante Calderón"/>
+				title="Twitter - Yusuf Adeyemo"/>
 		</SocialIcon>
 		<SocialIcon
 			className="linkedin--hover"
-			href="https://www.linkedin.com/in/dantehemerson/"
-			title="Linkedin - Dante Calderón"
+			href="https://www.linkedin.com/in/yusadolat/"
+			title="Linkedin - Yusuf Adeyemo"
 			target="_blank">
 			<img
 				alt="img"
 				src="https://icongr.am/fontawesome/linkedin.svg?color=ffffff"
-				title="Linkedin - Dante Calderón"/>
+				title="Linkedin - Yusuf Adeyemo"/>
 		</SocialIcon>
 		<SocialIcon
 			className="instagram--hover"
-			href="https://www.instagram.com/dantehemerson/"
-			title="Instagram - Dante Calderón"
+			href="https://www.instagram.com/yusadolat/"
+			title="Instagram - Yusuf Adeyemo"
 			target="_blank">
 			<img
 				alt="img"
 				src="https://icongr.am/fontawesome/instagram.svg?color=ffffff"
-				title="Instagram - Dante Calderón"/>
+				title="Instagram - Yusuf Adeyemo"/>
 		</SocialIcon>
 	</SocialWrapper>
 )
