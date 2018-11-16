@@ -33,8 +33,7 @@ module.exports = {
       {
          resolve: 'gatsby-transformer-remark',
          options: {
-            plugins: [
-               {
+            plugins: [{
                   resolve: `gatsby-remark-images`,
                   options: {
                      maxWidth: 590,
@@ -107,7 +106,7 @@ module.exports = {
          resolve: `gatsby-plugin-manifest`,
          options: {
             name: 'Yusuf Adeyemo',
-            short_name: 'Dante',
+            short_name: 'Yusadolat',
             start_url: '/',
             background_color: '#1976d2',
             theme_color: '#1976d2',
