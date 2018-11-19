@@ -4,7 +4,7 @@ module.exports = {
       title: 'Yusuf Adeyemo',
       author: 'Yusuf Adeyemo',
       description: 'Yusuf Adeyemo - Full Stack Developer/ Devops Engineer',
-      siteUrl: 'https://yusadolat.me'
+      siteUrl: 'https://www.yusadolat.me'
    },
    plugins: [
       'gatsby-plugin-react-helmet',
