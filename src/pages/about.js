@@ -34,12 +34,12 @@ class About extends React.Component {
 			<
 			h2 className = "About__title Page__title" > About Me < /h2> <
 			p className = "About__description Page__description" >
-			Hello, I 'm Yusuf Adeyemo and I am an award winning Full Stack Web Developer and Devops Engineer. <
-			/p> <
-			/div> <
-			/div> <
-			/div> <
-			/section> <
+			Hello, I 'm Yusuf Adeyemo and I am an award winning Full Stack Web Developer and Devops Engineer. < /
+			p > <
+			/div> < /
+			div > <
+			/div> < /
+			section > <
 			div className = "container" >
 			<
 			div className = "row center-xs" >
@@ -51,8 +51,8 @@ class About extends React.Component {
 			Img sizes = {
 				this.props.data.aboutImage.sizes
 			}
-			/> <
-			/div> <
+			/> < /
+			div > <
 			/div> <
 			div className = "About__interests col-xs-12 col-md-6 text-left first-md" >
 			<
@@ -61,36 +61,36 @@ class About extends React.Component {
 			<
 			li className = "About__interests__item" >
 			<
-			i className = "ai" > < /i>Artificial Intelligent <
-			/li> <
+			i className = "ai" > < /i>Artificial Intelligence < /
+			li > <
 			li className = "About__interests__item" >
 			<
-			i className = "ml" > < /i>Machine Learning <
-			/li> <
+			i className = "ml" > < /i>Machine Learning < /
+			li > <
 			li className = "About__interests__item" >
 			<
-			i className = "ds" > < /i>Data Science <
-			/li> <
+			i className = "ds" > < /i>Data Science < /
+			li > <
 			li className = "About__interests__item" >
 			<
-			i className = "cp" > < /i>Competitive Programming <
-			/li> <
+			i className = "cp" > < /i>Competitive Programming < /
+			li > <
 			li className = "About__interests__item" >
 			<
-			i className = "game" > < /i>BOT Development <
-			/li> <
+			i className = "game" > < /i>BOT Development < /
+			li > <
 			li className = "About__interests__item" >
 			<
-			i className = "back" > < /i>Data, data and more data <
-			/li> <
-			/ul> <
-			/div> <
-			/div> <
-			/div> <
+			i className = "back" > < /i>Data, data and more data < /
+			li > <
+			/ul> < /
+			div > <
+			/div> < /
+			div > <
 			Stack / >
 			<
-			/div> <
-			/Layout>
+			/div> < /
+			Layout >
 		)
 	}
 }
