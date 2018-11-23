@@ -34,7 +34,7 @@ class About extends React.Component {
 			<
 			h2 className = "About__title Page__title" > About Me < /h2> <
 			p className = "About__description Page__description" >
-			Hello, I 'm Yusuf Adeyemo and I am an award winning Full Stack Web Developer and Devops Engineer. < /
+			My career in web development spans over 5 years.After years of working at agencies helping clients such as APTN News, Canada, Qalam Edu Center, Somaliland, GirongVR and Evidence Radio Nigeria bring engaging and effective experiences to the widest audience possible, I Founded Hostailor Inc where I help SME 's take charge of their hosting needs. I currently Work with IderaOS(Ideraos helps you sell online with ease) as a Front-end  Engineer, I love seeking out ingenuity and simplicity, especially in places where over-engineering is common. < /
 			p > <
 			/div> < /
 			div > <
