@@ -143,13 +143,6 @@ const groups = [{
 				about: "Infraestructura web rápida, minimalista y flexible para Node.js"
 			},
 			{
-				name: 'Django',
-				icon: 'django-original.svg',
-				background: '#003a2b',
-				type: type[8],
-				about: "The Web framework for perfectionists with deadlines"
-			},
-			{
 				name: 'MySQL',
 				icon: 'mysql-original-wordmark.svg',
 				background: 'white',
@@ -168,13 +161,6 @@ const groups = [{
 				icon: 'postgresql-original.svg',
 				type: type[0],
 				about: "A powerful, open source object-relational database system"
-			},
-			{
-				name: 'Flask',
-				icon: 'flask.jpg',
-				background: 'white',
-				type: type[10],
-				about: "A microframework for Python based on Werkzeug, Jinja 2 and good intentions."
 			},
 			{
 				name: 'GraphQL',
@@ -300,15 +286,15 @@ export default props => ( <
 		<
 		div className = "" >
 		<
-		h2 className = "Page__title" > My Stack < /h2> {} <
-		/div> {
+		h2 className = "Page__title" > My Stack < /h2> {} < /
+		div > {
 			groups.map((group, index) => < Group key = {
-						index
-					}
-					group = {
-						group
-					}
-					/>)
-				} <
-				/div>
+					index
+				}
+				group = {
+					group
+				}
+				/>)
+			} <
+			/div>
 		)
