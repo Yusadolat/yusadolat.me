@@ -284,6 +284,7 @@ const groups = [{
 export default props => ( <
 		div className = 'Stack' >
 		<
+
 		div className = "" >
 		<
 		h2 className = "Page__title" > My Stack < /h2> {} < /
@@ -295,6 +296,4 @@ export default props => ( <
 					group
 				}
 				/>)
-			} <
-			/div>
-		)
+			} < /div>)
