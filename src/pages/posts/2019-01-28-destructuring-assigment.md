@@ -1,5 +1,4 @@
 ---
-
 model: post
 title: Destructuring Assignment- ES6
 description: >-
