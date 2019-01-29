@@ -13,3 +13,25 @@ tags:- ES6
 ---
 
 Destructuring is a convenient way of extracting multiple values from data stored in (possibly nested) objects and Arrays. It can be used in locations that receive data (such as the left-hand side of an assignment).
+
+```
+const person = {
+  name: 'Max',
+  age: 29,
+  greet() {
+    console.log('Hi, I am ' + this.name);
+  }
+};
+
+
+
+const printName = ({ name }) => {
+  console.log(name);
+};
+
+printName(person);
+```
+
+```
+
+```
