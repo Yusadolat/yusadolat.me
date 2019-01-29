@@ -1,36 +1,37 @@
 ---
 model: post
-title: Destructuring Assignment- ES6
-description: >-
-Intro to Detructuring Assigment
-path:destructuring
-thumbnail:/img/destructing-assign.png
-date:"2019-01-28T09:56:23-05:00"
-published:true
-style:medium-img
-tags:- ES6
+title: Intro to Destructing
+description: Simple intro to Destructing
+path: destructing-es6
+thumbnail: /img/destructing-assign.png
+date: 2019-01-29T20:16:06.768Z
+published: true
+style: full-image
+tags:
+  - es6
 ---
 
-Destructuring is a convenient way of extracting multiple values from data stored in (possibly nested) objects and Arrays. It can be used in locations that receive data (such as the left-hand side of an assignment).
+Hello, I want to share my list that consists of some practices that I use to write components in React, surely you already know some of them. Of course this is my point of view, you can recommend some practice that you do not find in the list or suggest an improvement in the comments. I hope they serve you.
 
+1.- Importing components and libraries
+When importing components what I do is to separate with a blank line the components that are external and those of my project. For example:
+
+```jsx
+import React from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import plyr from 'plyr'
+import 'plyr/dist/plyr.css'
+
+import Header from './components/Header'
+import Footer from './components/Footer'
+import initialState from './data'
+import './css/styles.css'
+
+class MyComponent extends React.Component {
+	...
+}
 ```
-const person = {
-  name: 'Max',
-  age: 29,
-  greet() {
-    console.log('Hi, I am ' + this.name);
-  }
-};
 
-
-
-const printName = ({ name }) => {
-  console.log(name);
-};
-
-printName(person);
-```
-
-```
-
-```
+#Full post coming later
