@@ -78,7 +78,7 @@ export default props => ( <
 	<
 	/Icon> <
 	/Social> <
-	Copy > ©2018 - All rights reserved.Made with < span > ❤ < /span> by <a href="https:/ / twitter.com / yusadolat " target="
+	Copy > ©2019 - All rights reserved.Made with < span > ❤ < /span> by <a href="https:/ / twitter.com / yusadolat " target="
 	_blank " rel="
 	noopener noreferrer ">Yusuf Adeyemo</a></Copy> <
 	/Container>

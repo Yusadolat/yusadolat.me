@@ -60,6 +60,6 @@ export default props => (
 				<img alt="Instagram Dante Calderón" src="https://icongr.am/fontawesome/instagram.svg?size=20&color=282a2d"/>
 			</Icon>
 		</Social>
-		<Copy>© 2018 - All rights reserved. Made with <span>❤</span> by <a href="https://twitter.com/yusadolat" target="_blank" rel="noopener noreferrer">Yusuf Adeyemo</a></Copy>
+		<Copy>© 2019 - All rights reserved. Made with <span>❤</span> by <a href="https://twitter.com/yusadolat" target="_blank" rel="noopener noreferrer">Yusuf Adeyemo</a></Copy>
 	</Container>
 )
