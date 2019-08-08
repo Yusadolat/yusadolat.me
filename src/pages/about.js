@@ -20,13 +20,15 @@ class About extends React.Component {
                 <div className="HeaderContact__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
                   <h2 className="About__title Page__title"> About Me </h2>{" "}
                   <p className="About__description Page__description">
-                    My career in web development spans over 4 years. After years
+                    My career in web development spans over 3 years. After years
                     of working at agencies helping clients such as APTN News,
                     Canada, Qalam Edu Center, Somaliland, GirongVR and Evidence
                     Radio Nigeria bring engaging and effective experiences to
                     the widest possible audience , I Founded Hostailor Inc where
-                    I help SME 's take charge of their hosting needs. I
-                    currently Work with IderaOS(Ideraos helps you sell online
+                    I help SME 's take charge of their hosting needs.
+                  </p>
+                  <p className="About__decription Page__description">
+                    I currently Work with IderaOS(Ideraos helps you sell online
                     with ease) as a Front-end Engineer, I love seeking out
                     ingenuity and simplicity, especially in places where
                     over-engineering is common.{" "}
