@@ -255,7 +255,6 @@ const groups = [
         about:
           "CircleCI’s continuous integration and delivery platform helps software teams rapidly release code with confidence."
       }
-      //{ name: 'Github', icon: 'github-original.svg', background: 'white', type: type[12], about: "Powerful collaboration, review, and code management for open source and private development projects." },
     ]
   },
   {
