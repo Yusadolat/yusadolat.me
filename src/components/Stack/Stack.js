@@ -274,13 +274,6 @@ const groups = [
         background: "#474747",
         type: type[15],
         about: "A sophisticated text editor for code, markup and prose."
-      },
-      {
-        name: "VIM",
-        icon: "vim-original.svg",
-        type: type[15],
-        about:
-          "Highly configurable text editor built to enable efficient text editing"
       }
       //{ name: 'Ubuntu', icon: 'ubuntu-plain.svg', background: 'white', type: type[6], about: "The leading OS for PC, tablet, phone and cloud" },
       //{ name: 'Debian', icon: 'debian-plain.svg', background: 'white', type: type[6], about: "The Universal Operating System" },
