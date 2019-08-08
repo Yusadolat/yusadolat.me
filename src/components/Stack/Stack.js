@@ -112,13 +112,7 @@ const groups = [
         about:
           "A semantic personal publishing platform with a focus on aesthetics, web standards, and usability"
       },
-      {
-        name: "Contentful",
-        icon: "contentful.png",
-        background: "black",
-        type: type[26],
-        about: "Manage content once, publish it anywhere"
-      },
+
       {
         name: "Mocha",
         icon: "mocha-plain.svg",
@@ -226,12 +220,7 @@ const groups = [
         background: "#333",
         type: type[2]
       },
-      {
-        name: "Apache",
-        icon: "apache-original-wordmark.svg",
-        background: "white",
-        type: type[2]
-      },
+
       {
         name: "Travis CI",
         icon: "travisci.png",
