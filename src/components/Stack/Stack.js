@@ -71,6 +71,13 @@ const groups = [
     title: "Frontend",
     items: [
       {
+        name: "Vue",
+        icon: "vue-svg-logo.svg",
+        background: "#1c1c1c",
+        type: type[3],
+        about: "A progressive framework for building user interfaces"
+      },
+      {
         name: "React",
         icon: "react-original.svg",
         background: "#1c1c1c",
