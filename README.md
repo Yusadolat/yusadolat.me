@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2795d1cf-4f0b-4200-8b21-77990c83d562/deploy-status)](https://app.netlify.com/sites/yusadolat/deploys)
+
 # Yusuf Adeyemo Website [Visit live website](https://yusadolat.me)
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
