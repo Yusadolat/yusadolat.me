@@ -15,8 +15,8 @@ export default props => (
         Yusuf Adeyemo
       </Link>
       <p className="AuthorPostFooter__about">
-        Award Winning Full Stack Developer. Devops Engineer focus on AWS and
-        Google Cloud. I also like to develop BOT, you can see the ones I created
+        Javascript Full Stack Developer. Devops Engineer focus on AWS and
+          Google Cloud. I also like to develop BOT, you can see the ones I created
         in my <Link to="/portfolio">portfolio</Link>.
       </p>
       <div className="AuthorPostFooter__social">
