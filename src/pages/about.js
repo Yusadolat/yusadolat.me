@@ -55,7 +55,7 @@ class About extends React.Component {
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="ds"> </i>
-                    Data Science{" "}
+                    Devops{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="cp"> </i>
@@ -63,7 +63,7 @@ class About extends React.Component {
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="game"> </i>
-                    BOT Development{" "}
+                    CHATBOT Development{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="back"> </i>
