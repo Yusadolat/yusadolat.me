@@ -49,7 +49,7 @@ export default props => (
     <Social>
       <Icon target="_blank" href="https://www.github.com/yusadolat">
         <img
-          alt="Facebook Dante Calderón"
+          alt="Facebook Yusuf Adeyemo"
           src="https://icongr.am/fontawesome/github.svg?size=20&color=282a2d"
         />
       </Icon>

@@ -64,17 +64,17 @@ const Excerpt = styled.p`
 `
 
 export default props => (
-	<Container to={ props.data.path }>
+	<Container to={props.data.path}>
 		<div>
 			<ImageWrapper>
 				<Img sizes={props.data.thumbnail} />
 			</ImageWrapper>
 			<Info>
-				<Title>{ props.data.title }</Title>
+				<Title>{props.data.title}</Title>
 				<Time>
-					<time dateTime="2008-02-14 20:00">{ props.data.date} </time>&middot; { props.data.timeToRead} min read
-				</Time>			
-				<Excerpt>{ props.data.excerpt }</Excerpt>						
+					<time dateTime="2008-02-14 20:00">{props.data.date} </time>&middot; {props.data.timeToRead} min read
+				</Time>
+				<Excerpt>{props.data.excerpt}</Excerpt>
 			</Info>
 		</div>
 	</Container>
