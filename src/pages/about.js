@@ -24,12 +24,10 @@ class About extends React.Component {
                     of working at agencies helping clients such as APTN News,
                     Canada, Qalam Edu Center, Somaliland, GirongVR and Evidence
                     Radio Nigeria bring engaging and effective experiences to
-                    the widest possible audience , I Founded Hostailor Inc where
-                    I help SME 's take charge of their hosting needs.
+                    the widest possible audience.
                   </p>
                   <p className="About__decription Page__description">
-                    I currently Work with IderaOS(Ideraos helps you sell online
-                    with ease) as a Front-end Engineer, I love seeking out
+                    I currently Work with ThyFlow (ThyFlow connect service providers with customers that need and want their service, in a safe and secure manner.) as a Front-end Engineer, I love seeking out
                     ingenuity and simplicity, especially in places where
                     over-engineering is common.{" "}
                   </p>{" "}
