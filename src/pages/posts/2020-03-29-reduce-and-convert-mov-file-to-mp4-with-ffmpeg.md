@@ -3,7 +3,7 @@ model: post
 title: Reduce and Convert .mov file to .mp4 with FFmpeg
 description: Learn the easiest and the fastest way to reduce and convert your .mov to .mp4
 path: /reduce-convert-.mov-to-.mp4
-thumbnail: /img/bit-manipulation.png
+thumbnail: /img/reduce-mov.png
 date: 2020-03-29T17:07:07.769Z
 published: true
 style: default
