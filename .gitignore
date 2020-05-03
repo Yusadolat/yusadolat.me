@@ -1,6 +1,7 @@
 # Project dependencies
 .cache
 node_modules
+.env
 yarn-error.log
 
 # Build directory
