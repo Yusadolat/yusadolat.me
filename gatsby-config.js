@@ -4,7 +4,7 @@ module.exports = {
     title: "Yusuf Adeyemo",
     author: "Yusuf Adeyemo",
     description: "Yusuf Adeyemo - Full Stack Developer/ Devops Engineer",
-    siteUrl: "https://yusadolat.netlify.com"
+    siteUrl: "https://yusadolat.netlify.app"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
