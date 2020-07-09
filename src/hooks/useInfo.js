@@ -5,7 +5,7 @@ import { getMyGithubInfo } from "../utils/requests/githubInfo";
 export const useInfo = () => {
   const [info, setInfo] = useLocalStorage("info", {
     status: "",
-    company: "@yusadolat",
+    company: "@yusadolat @ProntoAfrika",
     updatedAt: "",
     totalContributions: 0,
     bussy: false
@@ -22,7 +22,6 @@ export const useInfo = () => {
       } catch (err) {}
     };
     setGithubInfo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return info;
