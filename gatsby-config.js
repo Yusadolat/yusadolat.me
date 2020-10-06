@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: "Yusuf Adeyemo",
     author: "Yusuf Adeyemo",
-    description: "Yusuf Adeyemo - Full Stack Developer/ Devops Engineer",
+    description: "Yusuf Adeyemo - Backend Developer/ Devops Engineer",
     siteUrl: "https://yusadolat.netlify.app"
   },
   plugins: [
