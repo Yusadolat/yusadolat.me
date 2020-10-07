@@ -9,7 +9,7 @@
     "babel-plugin-styled-components": "^1.8.0",
     "bluebird": "^3.5.2",
     "dotenv": "8.1.0",
-    "gatsby": "^2.0.36",
+    "gatsby": "^2.20.64",
     "gatsby-image": "^2.0.19",
     "gatsby-plugin-catch-links": "^2.0.6",
     "gatsby-plugin-feed": "^2.0.9",
