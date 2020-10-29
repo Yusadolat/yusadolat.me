@@ -1,6 +1,6 @@
 ---
 model: post
-title: Runing Go Program on iOS and iPadOS with iSH
+title: Running Go Program on iOS and iPadOS with iSH
 description: In this guide, I will be showing you how to set up a Go Environment
   on your iOS and iPadOS with iSH.
 path: runining-golang-on-ios
