@@ -48,7 +48,7 @@ export const Post = ({
         <div className="Foot__Share">
           <Share
             title={frontmatter.title}
-            url={`https://yusadolat.me/` + frontmatter.path}
+            url={`https://yusadolat.netlify.app/` + frontmatter.path}
           />
         </div>
         <div className="Foot__AuthorPost">
@@ -106,7 +106,6 @@ export default class BlogPostTemplate extends React.Component {
           <SEO
             title={post.frontmatter.title}
             url={`${siteMetadata.siteUrl}/${post.frontmatter.path}`}
-            //image={`https://yusadolat.me${post.fields.thumbnail.childImageSharp.responsiveSizes.src}`}
             description={post.frontmatter.description}
             isPost={true}
           />
@@ -148,7 +147,7 @@ export default class BlogPostTemplate extends React.Component {
                 fixed
                 show={this.state.show_share}
                 title={post.frontmatter.title}
-                url={`https://yusadolat.me/` + post.frontmatter.path}
+                url={`https://yusadolat.netlify.app/` + post.frontmatter.path}
               />
             )}
           </div>
