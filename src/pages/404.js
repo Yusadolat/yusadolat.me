@@ -95,10 +95,10 @@ export default props => (
           404{" "}
         </text>{" "}
       </svg>{" "}
-      <Title> Oops!Page not found </Title>{" "}
+      <Title> Oops! Page not found </Title>{" "}
       <Description>
         {" "}
-        Ir al <Link to="/"> Home </Link>.
+        Go back <Link to="/"> Home </Link>.
       </Description>
     </Container>{" "}
   </Layout>
