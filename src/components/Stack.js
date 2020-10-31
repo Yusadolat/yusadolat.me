@@ -18,6 +18,7 @@ const type = [
   "Code Collaboration & VCS",
   "Version Control System",
   "Virtual Machine Platforms and containers",
+  "open-source container-orchestration system",
   "Text Editor",
   "Infrastructure as a service",
   "Continuous Integration",
@@ -180,6 +181,14 @@ const groups = [
         type: type[14],
         about:
           "An open source project to pack, ship and run any application as a lightweight container"
+      },
+      {
+        name: "Kubernetes",
+        icon: "kubernetes_logo.svg",
+        background: "white",
+        type: type[15],
+        about:
+          "An open-source container-orchestration system for automating computer application deployment, scaling, and management."
       },
       {
         name: "AWS",

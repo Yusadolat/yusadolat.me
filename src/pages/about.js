@@ -48,7 +48,7 @@ class About extends React.Component {
                 <ul className="About__interests__list">
                   <li className="About__interests__item">
                     <i className="ai"> </i>
-                    Artificial Intelligence{" "}
+                    Backend Development{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="ml"> </i>
@@ -60,7 +60,7 @@ class About extends React.Component {
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="cp"> </i>
-                    Competitive Programming{" "}
+                    Chaos Engineering{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="game"> </i>
