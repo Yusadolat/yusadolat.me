@@ -51,7 +51,7 @@ const groups = [
           "Python is a clear and powerful object-oriented programming language, comparable to Perl, Ruby, Scheme, or Java."
       },
       {
-        name: "C++",
+        name: "Golang",
         icon: "cplusplus-original.svg",
         type: type[1],
         about:
@@ -105,12 +105,7 @@ const groups = [
         type: type[8],
         about: "A small framework for server-rendered universal JavaScript apps"
       },
-      {
-        name: "Angular",
-        icon: "angularjs-original.svg",
-        type: type[25],
-        about: "Superheroic JS MVC Framework"
-      },
+      
       {
         name: "Wordpress",
         icon: "wordpress-plain.svg",
