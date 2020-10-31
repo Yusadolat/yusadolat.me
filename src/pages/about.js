@@ -51,20 +51,20 @@ class About extends React.Component {
                     Backend Development{" "}
                   </li>{" "}
                   <li className="About__interests__item">
-                    <i className="ml"> </i>
-                    Machine Learning{" "}
-                  </li>{" "}
-                  <li className="About__interests__item">
                     <i className="ds"> </i>
                     Devops{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="cp"> </i>
-                    Chaos Engineering{" "}
+                    Chaos Engineering
+                  </li>{" "}
+                  <li className="About__interests__item">
+                    <i className="ml"> </i>
+                    ML Ops{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="game"> </i>
-                    CHATBOT Development{" "}
+                    ChatBOT Development{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="back"> </i>
