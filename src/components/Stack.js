@@ -92,12 +92,6 @@ const groups = [
         about: "A small framework for server-rendered universal JavaScript apps"
       },
       {
-        name: "Angular",
-        icon: "angularjs-original.svg",
-        type: type[25],
-        about: "Superheroic JS MVC Framework"
-      },
-      {
         name: "Wordpress",
         icon: "wordpress-plain.svg",
         background: "white",
