@@ -9,7 +9,7 @@ export default props => (
     </div>
     <div className="AuthorPostFooter__body">
       <p className="AuthorPostFooter__written by">
-        {props.make ? "Hecho" : "Written"} by
+        {props.make ? "Written" : "Written"} by
       </p>
       <Link to="/#about" className="AuthorPostFooter__name">
         Yusuf Adeyemo

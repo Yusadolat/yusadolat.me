@@ -8,9 +8,9 @@ export default props => (
 			<Img className="AuthorPostFooter__image" sizes={ props.avatar.sizes } />
 		</div>
 		<div className="AuthorPostFooter__body">
-			<p className="AuthorPostFooter__written by">{ props.make ? 'Hecho' : 'Written'} by</p>
+			<p className="AuthorPostFooter__written by">{ props.make ? 'Written' : 'Written'} by</p>
 			<Link to="/#about" className="AuthorPostFooter__name">Yusuf Adeyemo</Link>
-			<p className="AuthorPostFooter__about">Award Winning Full Stack Developer. Devops Engineer focus on AWS and Google Cloud. I also like to develop BOT, you can see the ones I created in my <Link to="/portfolio">portfolio</Link>.</p>
+			<p className="AuthorPostFooter__about">Award Winning Full Stack Developer with focus on Backend. I also like to develop BOT, you can see the ones I created in my <Link to="/portfolio">portfolio</Link>.</p>
 			<div className="AuthorPostFooter__social">
 				<a href="https://www.github.com/yusadolat">
 					<img alt="img" src="https://icongr.am/fontawesome/github.svg?color=646464&size=21" />
