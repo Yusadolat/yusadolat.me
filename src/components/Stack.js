@@ -52,12 +52,11 @@ const groups = [
           "Python is a clear and powerful object-oriented programming language, comparable to Perl, Ruby, Scheme, or Java."
       },
       {
-        name: "PHP",
-        icon: "php-original.svg",
-        background: "white",
+        name: "Golang",
+        icon: "go-original.svg",
         type: type[1],
         about:
-          "A popular general-purpose scripting language that is especially suited to web development"
+          "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
       }
     ]
   },
@@ -141,7 +140,7 @@ const groups = [
         type: type[10],
         about: "Infraestructura web rápida, minimalista y flexible para Node.js"
       },
-      
+
       {
         name: "MySQL",
         icon: "mysql-original-wordmark.svg",
