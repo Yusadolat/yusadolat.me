@@ -271,8 +271,8 @@ const groups = [
         about: "Your entire project, in a single glance."
       },
       {
-        name: "Sublime Text",
-        icon: "sublime-text-3.png",
+        name: "Visual Studio Code",
+        icon: "vscode.png",
         background: "#474747",
         type: type[15],
         about: "A sophisticated text editor for code, markup and prose."

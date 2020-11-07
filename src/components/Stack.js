@@ -271,16 +271,16 @@ const groups = [
         about: "Your entire project, in a single glance."
       },
       {
-        name: "Sublime Text",
-        icon: "sublime-text-3.png",
-        background: "#474747",
-        type: type[15],
-        about: "A sophisticated text editor for code, markup and prose."
+        name: "Visual Studio Code",
+        icon: "vscode_icon.png",
+        type: type[16],
+        about:
+          "Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications."
       },
       {
         name: "VIM",
         icon: "vim-original.svg",
-        type: type[15],
+        type: type[16],
         about:
           "Highly configurable text editor built to enable efficient text editing"
       }
@@ -294,11 +294,6 @@ export default props => (
   <div className="Stack">
     <div className="">
       <h2 className="Page__title">My Stack</h2>
-      {/*
-				<p className="About__description Page__description">
-					Hello, I'm Yusuf Adeyemo and I am an award winning Full Stack Web Developer and Devops Engineer.
-				</p>
-			*/}
     </div>
     {groups.map((group, index) => (
       <Group key={index} group={group} />
