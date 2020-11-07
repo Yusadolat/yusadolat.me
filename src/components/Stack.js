@@ -6,7 +6,7 @@ const type = [
   "Databases",
   "Language",
   "Web Server",
-  "Javascript UI Librarie",
+  "Javascript UI Library",
   "Cloud Hosting",
   "CSS Pre-processor",
   "Operating System",
