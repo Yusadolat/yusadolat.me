@@ -43,7 +43,7 @@ Now that you have downloaded the App. Let's do the magic.
 
 ``
 
-1. Test to make sure Ruby is installed by typing `go version`, you should see something along the lines of
+1. Test to make sure Go is installed by typing `go version`, you should see something along the lines of
 
 ```
 go version go1.13.15 linux/386
