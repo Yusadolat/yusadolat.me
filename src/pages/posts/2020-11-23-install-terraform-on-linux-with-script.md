@@ -17,7 +17,7 @@ Terraform allows you to:
 
 * preview of infrastructure changes before they are implemented.
 * integrates a very large number of providers.
-* run infrastructure Windows, Linux and Mac
+* run infrastructure on Windows, Linux, and Mac
 
 Let's have a look at the install Terraform on Linux with just a single script. This script automates the installation terraform and all you need to do this script in your Linux terminal.
 
