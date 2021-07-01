@@ -23,7 +23,7 @@ class Index extends React.Component {
                 <div className="col-xs-12 col-lg-5 text-center">
                   <h1 className="Header-Home__title">Yusuf Adeyemo</h1>
                   <h2 className="Header-Home__subtitle">
-                    Backend|Devops Engineer{" "}
+                    Devops Engineer | Site Reliability Engineer
                   </h2>
                   <Social />
                   <Info />
