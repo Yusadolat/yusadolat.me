@@ -21,7 +21,7 @@ const Info = () => {
         <InfoItem title="⛏ Working on" description={info.company} />
         <InfoItem
           title="🚀 Contributions"
-          description={`${info.totalContributions || 0} in the last year`}
+          description={`${info.totalContributions || 100} commits in the last year`}
         />
       </Container>
     </div>
