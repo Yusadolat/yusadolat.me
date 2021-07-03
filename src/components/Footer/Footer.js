@@ -73,7 +73,7 @@ export default props => (
       </Icon>
     </Social>
     <Copy>
-      © 2019 - All rights reserved. Made with <span>❤</span> by{" "}
+      © 2021 - All rights reserved. Made with <span>❤</span> by{" "}
       <a
         href="https://twitter.com/yusadolat"
         target="_blank"
