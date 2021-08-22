@@ -5,9 +5,9 @@ import { getMyGithubInfo } from "../utils/requests/githubInfo";
 export const useInfo = () => {
   const [info, setInfo] = useLocalStorage("info", {
     status: "Helping startups deliver better software ",
-    company: "@Vendii",
+    company: "Vendii",
     updatedAt: "",
-    totalContributions: 1896,
+    totalContributions: 1,682,
     bussy: false
   });
 
