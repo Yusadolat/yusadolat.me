@@ -17,7 +17,7 @@ export default class SEO extends PureComponent {
     title: "Yusuf Adeyemo",
     image: `https://yusadolat.netlify.app${avatar}`,
     url: "https://yusadolat.netlify.app/",
-    description: "Yusuf Adeyemo - Devops Engineer/ Full stack Developer",
+    description: "Yusuf Adeyemo - Devops Engineer / Site Reliability Engineer",
     isPost: false
   };
 
