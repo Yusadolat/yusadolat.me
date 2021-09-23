@@ -114,6 +114,12 @@ module.exports = {
         icon: `src/assets/images/logo.jpg` // This path is relative to the root of the site.
       }
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "yusadolat.me"
+      }
+    },
     `gatsby-plugin-styled-components`
   ]
 };
