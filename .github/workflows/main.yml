@@ -1,0 +1,40 @@
+name: Deploy Blog
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+            node_modules
+          key: ${{ runner.os }}-gatsby-alexhyett-site-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-yusadolat-site-build-
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Lint
+        run: yarn run lint
+      - name: Build
+        run: yarn run build
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+      - name: Deploy to S3
+        run: yarn run deploy
