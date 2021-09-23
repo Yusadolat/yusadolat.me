@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - aws s3 cp s3://portal-envs/env.dev .env
+      - aws s3 cp s3://penstock/codebuild_nvm_wrapper.sh codebuild_nvm_wrapper.sh
+      - chmod +x ./codebuild_nvm_wrapper.sh
+      - ./codebuild_nvm_wrapper.sh
+      - node --version
+  build:
+    commands:
+      - echo build prod file.
+      - npm run build
+  post_build:
+    commands:
+      - echo Building started on `date`
+      - aws s3 sync ./build s3://app-aws-portal 
+      - aws cloudfront create-invalidation --distribution-id E1IWK6K5MD7QJX --paths "/*";
+
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: ./build
