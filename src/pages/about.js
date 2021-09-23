@@ -20,17 +20,18 @@ class About extends React.Component {
                 <div className="HeaderContact__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
                   <h2 className="About__title Page__title"> About Me </h2>{" "}
                   <p className="About__description Page__description">
-                    Hi, My name is Yusuf. I help startups deliver better
+                    Hi, My name is Yusuf Adeyemo. I help startups deliver better
                     software and provide more control over there environment and
                     software development process with the help of modern tools
                     and automation.
                   </p>
                   <p className="About__decription Page__description">
-                    I currently Work with ThyFlow (ThyFlow connect service
-                    providers with customers that need and want their service,
-                    in a safe and secure manner.) as a Infrastructure Engineer,
-                    I love seeking out ingenuity and simplicity, especially in
-                    places where over-engineering is common.{" "}
+                    I currently Work with Vendii (Vendii is building a SaaS cloud suite of vending
+                    tools, initially with a focus on fleet management and an
+                    automated multi-tiered warehousing tool that integrates
+                    directly with IoT vending machines in real-time) as a DevOps
+                    Engineer, I love seeking out ingenuity and simplicity,
+                    especially in places where over-engineering is common.{" "}
                   </p>{" "}
                 </div>{" "}
               </div>{" "}
