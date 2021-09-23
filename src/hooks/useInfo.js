@@ -7,7 +7,7 @@ export const useInfo = () => {
     status: "Helping startups deliver better software ",
     company: "Vendii",
     updatedAt: "",
-    totalContributions: 1,682,
+    totalContributions: 1682,
     bussy: false
   });
 
