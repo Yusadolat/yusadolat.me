@@ -26,8 +26,6 @@ jobs:
             ${{ runner.os }}-gatsby-yusadolat-site-build-
       - name: Install dependencies
         run: yarn install
-      - name: Run Lint
-        run: yarn run lint
       - name: Build
         run: yarn run build
       - name: Set AWS credentials
