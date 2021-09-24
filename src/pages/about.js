@@ -49,7 +49,7 @@ class About extends React.Component {
                 <ul className="About__interests__list">
                   <li className="About__interests__item">
                     <i className="ai"> </i>
-                    Backend Development{" "}
+                    Site Reliability Engineering{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="ds"> </i>
