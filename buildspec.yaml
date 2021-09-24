@@ -3,10 +3,15 @@ version: 0.2
 phases:
   pre_build:
     commands:
+    # copy Env from source
       - aws s3 cp s3://portal-envs/env.dev .env
+      #copy NVM wrapper
       - aws s3 cp s3://penstock/codebuild_nvm_wrapper.sh codebuild_nvm_wrapper.sh
+      # Make wrapper file executable
       - chmod +x ./codebuild_nvm_wrapper.sh
+      #run wrapper
       - ./codebuild_nvm_wrapper.sh
+      # Check node version
       - node --version
   build:
     commands:
