@@ -110,7 +110,7 @@ class Navbar extends React.Component {
 									About Me
 								</Link>
 							</li>
-							<li className='Navbar__item'>
+							{/* <li className='Navbar__item'>
 								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) }}
 									className={`Navbar__link ${ this.props.activePage === 'Portfolio' ? 'active' : ''}`}to="/portfolio">
 
@@ -120,7 +120,7 @@ class Navbar extends React.Component {
 									</svg>
 									Portfolio
 								</Link>
-							</li>
+							</li> */}
 							<li className='Navbar__item'>
 								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) }}
 									className={`Navbar__link ${ this.props.activePage === 'Contact' ? 'active' : ''}`} to="/contact">
