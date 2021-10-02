@@ -15,9 +15,9 @@ export default class SEO extends PureComponent {
 
 	static defaultProps = {
 		title: 'Yusuf Adeyemo',
-		image: `https://yusadolat.netlify.app${avatar}`,
-		url: 'https://yusadolat.netlify.app/',
-		description: 'Yusuf Adeyemo - Devops Engineer | Site Reliability Engineer',
+		image: `https://yusadolat.me${avatar}`,
+		url: 'https://yusadolat.me/',
+		description: 'Yusuf Adeyemo - Senior Devops Engineer | Site Reliability Engineer',
 		isPost: false
 	}
 

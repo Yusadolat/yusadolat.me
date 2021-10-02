@@ -3,8 +3,8 @@ module.exports = {
   siteMetadata: {
     title: "Yusuf Adeyemo",
     author: "Yusuf Adeyemo",
-    description: "Yusuf Adeyemo - Devops Engineer / Site Reliability Engineer",
-    siteUrl: "https://yusadolat.netlify.app"
+    description: "Yusuf Adeyemo - Senior Devops Engineer / Site Reliability Engineer",
+    siteUrl: "https://yusadolat.me"
   },
   plugins: [
     "gatsby-plugin-react-helmet",

@@ -48,7 +48,7 @@ export const Post = ({
         <div className="Foot__Share">
           <Share
             title={frontmatter.title}
-            url={`https://yusadolat.netlify.app/` + frontmatter.path}
+            url={`https://yusadolat.me/` + frontmatter.path}
           />
         </div>
         <div className="Foot__AuthorPost">
@@ -147,7 +147,7 @@ export default class BlogPostTemplate extends React.Component {
                 fixed
                 show={this.state.show_share}
                 title={post.frontmatter.title}
-                url={`https://yusadolat.netlify.app/` + post.frontmatter.path}
+                url={`https://yusadolat.me/` + post.frontmatter.path}
               />
             )}
           </div>
