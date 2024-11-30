@@ -10,7 +10,7 @@
     "bluebird": "^3.5.2",
     "decap-cms-app": "^3.4.0",
     "dotenv": "^16.3.1",
-    "gatsby": "^4.25.7",
+    "gatsby": "^5.14.0",
     "gatsby-plugin-catch-links": "^4.25.0",
     "gatsby-plugin-decap-cms": "^4.0.4",
     "gatsby-plugin-feed": "^4.25.0",
