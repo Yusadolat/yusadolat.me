@@ -2,6 +2,31 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+// Add schema customization
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter {
+      title: String!
+      subtitle: String
+      date: Date @dateformat
+      model: String
+      description: String
+      path: String
+      thumbnail: String
+      category: String
+      tags: [String]
+      stack: [String]
+      roles: [String]
+      client: String
+      repository: String
+      website: String
+      licence: String
+    }
+  `
+  createTypes(typeDefs)
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
    const { createNodeField } = actions
 

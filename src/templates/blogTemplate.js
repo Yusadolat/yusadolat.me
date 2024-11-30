@@ -101,7 +101,6 @@ export const pageQuery = graphql`
         description
         path
         thumbnail
-        category
         tags
         stack
         roles
