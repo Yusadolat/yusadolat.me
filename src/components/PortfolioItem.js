@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 const ItemWrapper = styled(Link)`
@@ -142,7 +141,7 @@ export default props => (
         <TopBar>
           <div className="TopBarButtons"></div>
         </TopBar>
-        <GatsbyImage image={getImage(props.data.thumbnail)} alt={props.data.title} />
+        <img src={props.data.thumbnail} alt={props.data.title} style={{ width: '100%', height: 'auto' }} />
       </CoverWrapper>
       <div>
         <Title>{props.data.title}</Title>
@@ -176,7 +175,7 @@ export default props => (
       </TagsWrapper>
       <ShortcutIcons>
         <a
-          title="See code on Github"
+          title="See code on Repository"
           href={props.data.repository}
           target="_blank"
           rel="noopener noreferrer"

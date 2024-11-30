@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import { media } from '../styles'
@@ -62,16 +61,19 @@ const Meta = styled.div`
 `
 
 const Card = ({ data }) => {
-	const image = getImage(data.thumbnail)
 	return (
 		<Container to={data.path}>
 			<div>
 				<ImageWrapper>
-					<GatsbyImage
-						image={image}
-						alt={data.title}
-						style={{ height: '100%' }}
-					/>
+					{data.thumbnail ? (
+						<img
+							src={data.thumbnail}
+							alt={data.title}
+							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+						/>
+					) : (
+						<div style={{ height: '200px', background: '#f0f0f0' }} />
+					)}
 				</ImageWrapper>
 				<Info>
 					<Title>{data.title}</Title>

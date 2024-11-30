@@ -38,7 +38,7 @@ class Portfolio extends React.Component {
 														{
 															title: node.frontmatter.title,
 															subtitle: node.frontmatter.subtitle,
-															thumbnail: node.fields.thumbnail.childImageSharp.gatsbyImageData,
+															thumbnail: node.frontmatter.thumbnail,
 															excerpt: node.excerpt,
 															date: node.frontmatter.date,
 															path: `/${node.frontmatter.path}`,
@@ -65,38 +65,33 @@ export const queryPortfolio = graphql`
   query QueryPortfolio {
     site {
       siteMetadata {
-         title
-         siteUrl
+        title
+        description
       }
     }
 
     allMarkdownRemark(
-    	sort: { fields: [frontmatter___date], order: DESC }
-    	filter: { frontmatter: { model: { eq: "project"} }}
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { model: { eq: "project"} }}
     ) {
-    	edges {
-    		node {
-    			excerpt
-    			timeToRead
-    			fields {
-    				thumbnail {
-    					childImageSharp {
-    						gatsbyImageData(width: 800, layout: CONSTRAINED)
-    					}
-    				}
-    			}
-    			frontmatter {
-    				date(formatString: "DD MMMM, YYYY")
-    				title
-    				subtitle
-    				path
-    				thumbnail
-    				tags
-    				repository
-    				website
-    			}
-    		}
-    	}
+      edges {
+        node {
+          excerpt
+          timeToRead
+          frontmatter {
+            date(formatString: "DD MMMM, YYYY")
+            title
+            subtitle
+            description
+            path
+            thumbnail
+            model
+            stack
+            repository
+            website
+          }
+        }
+      }
     }
   }
 `

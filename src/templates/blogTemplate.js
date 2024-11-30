@@ -1,67 +1,12 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import get from "lodash/get";
-import ReactDisqusComments from "react-disqus-comments";
 
-import Content, { HTMLContent } from "../components/Content";
+import { HTMLContent } from "../components/Content";
 import SEO from "../components/SEO";
-import AuthorPost from "../components/AuthorPost";
-import AuthorPostFooter from "../components/AuthorPostFooter";
-import Share from "../components/Share";
 import Layout from "../components/Layout";
 import Project from "./Project";
-
-export const Post = ({
-  content,
-  frontmatter,
-  previous,
-  next,
-  siteTitle,
-  image,
-  siteUrl,
-  contentComponent,
-  timeToRead,
-  avatar,
-  model
-}) => {
-  const PostContent = contentComponent || Content;
-  return (
-    <div className={`Post ${frontmatter.style}`}>
-      <div className="Post__header">
-        <div className="Post__header__data">
-          <h1 className="Post__title">{frontmatter.title}</h1>
-          <AuthorPost
-            date={frontmatter.date}
-            timeToRead={timeToRead}
-            avatar={avatar}
-          />
-        </div>
-        {frontmatter.style !== "default" && (
-          <div className="Post__header__image">
-            <GatsbyImage image={getImage(image)} alt={frontmatter.title} />
-          </div>
-        )}
-      </div>
-      <PostContent content={content} className="container Post__content" />
-      <div className="wrapper-post">
-        <div className="Foot__Share">
-          <Share
-            title={frontmatter.title}
-            url={`https://yusadolat.me/` + frontmatter.path}
-          />
-        </div>
-        <div className="Foot__AuthorPost">
-          <AuthorPostFooter
-            date={frontmatter.date}
-            timeToRead={timeToRead}
-            avatar={avatar}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
+import Post from "./Post/Post";
 
 export default class BlogPostTemplate extends React.Component {
   state = {
@@ -99,7 +44,7 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteMetadata = get(this.props, "data.site.siteMetadata");
-    const { previous, next } = this.props.pageContext; // replaced of pathContext
+    const { previous, next } = this.props.pageContext;
     return (
       <Layout location={this.props.location}>
         <div>
@@ -117,7 +62,7 @@ export default class BlogPostTemplate extends React.Component {
               next={next}
               content={post.html}
               contentComponent={HTMLContent}
-              image={post.fields.thumbnail.childImageSharp.gatsbyImageData}
+              image={post.frontmatter.thumbnail}
               avatar={this.props.data.avatar}
             />
           ) : (
@@ -128,29 +73,10 @@ export default class BlogPostTemplate extends React.Component {
               next={next}
               content={post.html}
               contentComponent={HTMLContent}
-              image={post.fields.thumbnail.childImageSharp.gatsbyImageData}
+              image={post.frontmatter.thumbnail}
               avatar={this.props.data.avatar}
             />
           )}
-          <div className="Post__footer">
-            <div id="disquser" className="container Disqus">
-              <ReactDisqusComments
-                shortname="yusadolat"
-                identifier={post.frontmatter.path}
-                title={post.frontmatter.title}
-                url={this.state.location}
-              />
-            </div>
-
-            {post.frontmatter.model === "post" && (
-              <Share
-                fixed
-                show={this.state.show_share}
-                title={post.frontmatter.title}
-                url={`https://yusadolat.me/` + post.frontmatter.path}
-              />
-            )}
-          </div>
         </div>
       </Layout>
     );
@@ -162,26 +88,20 @@ export const pageQuery = graphql`
     avatar: imageSharp(fluid: { originalName: { regex: "/avatar2.jpeg/" } }) {
       gatsbyImageData(width: 720, layout: CONSTRAINED)
     }
-    site {
-      siteMetadata {
-        title
-        siteUrl
-      }
-    }
-    markdownRemark(frontmatter: { path: { eq: $slug } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
-      htmlAst
       timeToRead
+      excerpt
       frontmatter {
         title
         subtitle
-        date(formatString: "MMMM DD, YYYY")
-        description
-        thumbnail
-        path
+        date(formatString: "DD MMMM, YYYY")
         model
-        style
+        description
+        path
+        thumbnail
+        category
         tags
         stack
         roles
@@ -189,13 +109,6 @@ export const pageQuery = graphql`
         repository
         website
         licence
-      }
-      fields {
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData(width: 1920, layout: CONSTRAINED)
-          }
-        }
       }
     }
   }

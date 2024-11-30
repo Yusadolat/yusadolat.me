@@ -29,9 +29,6 @@ class Blog extends React.Component {
 								<div className="row center-xs">
 									<div className="HeaderBlog__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
 										<h2 className="HeaderBlog__title Page__title">Blog</h2>
-										{/*
-										<p className="HeaderBlog__description Page__description">About programming and more.</p>
-										*/}
 									</div>
 								</div>
 							</div>
@@ -46,10 +43,10 @@ class Blog extends React.Component {
 												data={
 													{
 														title: node.frontmatter.title,
-														thumbnail: node.fields.thumbnail.childImageSharp.gatsbyImageData,
+														thumbnail: node.frontmatter.thumbnail,
 														excerpt: node.excerpt,
 														date: node.frontmatter.date,
-														path: `/${node.frontmatter.path}`,
+														path: node.frontmatter.path,
 														timeToRead: node.timeToRead
 													}
 												}/>
@@ -73,30 +70,18 @@ export const queryBlog = graphql`
       	}
     	}
     	allMarkdownRemark(
-    		sort: { frontmatter: { date: DESC } }
+    		sort: { fields: [frontmatter___date], order: DESC }
     		filter: { frontmatter: { model: { eq: "post"} }}) {
 				edges {
 					node {
 						excerpt(pruneLength: 240)
 						timeToRead
-						fields {
-							thumbnail {
-								childImageSharp {
-									gatsbyImageData(
-										width: 800
-										placeholder: TRACED_SVG
-										formats: [AUTO, WEBP]
-										quality: 90
-									)
-								}
-							}
-						}
 						frontmatter {
 							date(formatString: "DD MMMM, YYYY")
 							title
 							path
-							thumbnail
 							published
+							thumbnail
 						}
 					}
 				}
