@@ -4,35 +4,54 @@ on:
   push:
     branches:
       - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18.0.0
-      - name: Caching Gatsby
-        id: gatsby-cache-build
-        uses: actions/cache@v2
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Cache Gatsby files
+        uses: actions/cache@v3
+        id: gatsby-cache
         with:
           path: |
             public
             .cache
             node_modules
-          key: ${{ runner.os }}-gatsby-alexhyett-site-build-${{ github.run_id }}
+          key: ${{ runner.os }}-gatsby-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-yusadolat-site-build-
+            ${{ runner.os }}-gatsby-
+
       - name: Install dependencies
-        run: yarn install
-      - name: Build
-        run: yarn run build
-      - name: Set AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        run: npm ci --legacy-peer-deps
+
+      - name: Build Gatsby site
+        run: npm run build
+        env:
+          NODE_ENV: production
+          CI: true
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-      - name: Deploy to S3
-        run: yarn run deploy
+          aws-region: us-east-1
+
+      - name: Deploy to S3 and invalidate CloudFront
+        run: |
+          npm run deploy
+        env:
+          CI: true
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
