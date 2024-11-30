@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import { media } from '../../styles'
@@ -67,7 +67,7 @@ export default props => (
 	<Container to={ props.data.path }>
 		<div>
 			<ImageWrapper>
-				<Img sizes={props.data.thumbnail} />
+				<GatsbyImage image={getImage(props.data.thumbnail)} alt={props.data.title} />
 			</ImageWrapper>
 			<Info>
 				<Title>{ props.data.title }</Title>

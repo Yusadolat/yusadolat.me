@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import get from "lodash/get";
 import ReactDisqusComments from "react-disqus-comments";
@@ -39,7 +39,7 @@ export const Post = ({
         </div>
         {frontmatter.style !== "default" && (
           <div className="Post__header__image">
-            <Img sizes={image} />
+            <GatsbyImage image={getImage(image)} alt={frontmatter.title} />
           </div>
         )}
       </div>
@@ -117,7 +117,7 @@ export default class BlogPostTemplate extends React.Component {
               next={next}
               content={post.html}
               contentComponent={HTMLContent}
-              image={post.fields.thumbnail.childImageSharp.sizes}
+              image={post.fields.thumbnail.childImageSharp.gatsbyImageData}
               avatar={this.props.data.avatar}
             />
           ) : (
@@ -128,7 +128,7 @@ export default class BlogPostTemplate extends React.Component {
               next={next}
               content={post.html}
               contentComponent={HTMLContent}
-              image={post.fields.thumbnail.childImageSharp.sizes}
+              image={post.fields.thumbnail.childImageSharp.gatsbyImageData}
               avatar={this.props.data.avatar}
             />
           )}
@@ -160,9 +160,7 @@ export default class BlogPostTemplate extends React.Component {
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     avatar: imageSharp(fluid: { originalName: { regex: "/avatar2.jpeg/" } }) {
-      sizes(maxWidth: 720) {
-        ...GatsbyImageSharpSizes_tracedSVG
-      }
+      gatsbyImageData(width: 720, layout: CONSTRAINED)
     }
     site {
       siteMetadata {
@@ -195,9 +193,7 @@ export const pageQuery = graphql`
       fields {
         thumbnail {
           childImageSharp {
-            sizes(maxWidth: 1920) {
-              ...GatsbyImageSharpSizes_tracedSVG
-            }
+            gatsbyImageData(width: 1920, layout: CONSTRAINED)
           }
         }
       }

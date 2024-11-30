@@ -7,7 +7,6 @@ import Card from '../components/Card'
 import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 
-
 const PostsWrapper = styled.div`
 	padding: 0 15px;
 	max-width: 1060px;
@@ -43,10 +42,11 @@ class Blog extends React.Component {
 									if (node.frontmatter.published)
 										return (												
 											<Card
+												key={node.frontmatter.path}
 												data={
 													{
 														title: node.frontmatter.title,
-														thumbnail: node.fields.thumbnail.childImageSharp.sizes,
+														thumbnail: node.fields.thumbnail.childImageSharp.gatsbyImageData,
 														excerpt: node.excerpt,
 														date: node.frontmatter.date,
 														path: `/${node.frontmatter.path}`,
@@ -73,7 +73,7 @@ export const queryBlog = graphql`
       	}
     	}
     	allMarkdownRemark(
-    		sort: { fields: [frontmatter___date], order: DESC }
+    		sort: { frontmatter: { date: DESC } }
     		filter: { frontmatter: { model: { eq: "post"} }}) {
 				edges {
 					node {
@@ -82,23 +82,26 @@ export const queryBlog = graphql`
 						fields {
 							thumbnail {
 								childImageSharp {
-									sizes {
-										...GatsbyImageSharpSizes_tracedSVG
+									gatsbyImageData(
+										width: 800
+										placeholder: TRACED_SVG
+										formats: [AUTO, WEBP]
+										quality: 90
+									)
 								}
 							}
 						}
-					}
-					frontmatter {
-						date(formatString: "DD MMMM, YYYY")
-						title
-						path
-						thumbnail
-						published
+						frontmatter {
+							date(formatString: "DD MMMM, YYYY")
+							title
+							path
+							thumbnail
+							published
+						}
 					}
 				}
     		}
    	}
-  }
 `
 
 export default Blog

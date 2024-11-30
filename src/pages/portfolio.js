@@ -38,7 +38,7 @@ class Portfolio extends React.Component {
 														{
 															title: node.frontmatter.title,
 															subtitle: node.frontmatter.subtitle,
-															thumbnail: node.fields.thumbnail.childImageSharp.sizes,
+															thumbnail: node.fields.thumbnail.childImageSharp.gatsbyImageData,
 															excerpt: node.excerpt,
 															date: node.frontmatter.date,
 															path: `/${node.frontmatter.path}`,
@@ -81,9 +81,7 @@ export const queryPortfolio = graphql`
     			fields {
     				thumbnail {
     					childImageSharp {
-    						sizes {
-    							...GatsbyImageSharpSizes_tracedSVG
-    						}
+    						gatsbyImageData(width: 800, layout: CONSTRAINED)
     					}
     				}
     			}

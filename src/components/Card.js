@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import { media } from '../styles'
@@ -49,33 +49,40 @@ const Title = styled.h3`
 		color: #1976d2;
 	}
 `
-const Time = styled.p`
-	color: #757575;
-	font-size: 14px;
-	text-align: right;
-	padding: 6px 6px 6px;
+const Description = styled.p`
+	color: #666d71;
+	margin: 10px 0 0 0!important;
+	font-size: 1.1em;
+	line-height: 1.4;
 `
-const Excerpt = styled.p`
-	color: #757575;
-	font-size: 15px;
-	${media.sm`
-		font-size: 1rem;
-	`}
+const Meta = styled.div`
+	margin-top: 8px!important;
+	color: #666d71;
+	font-size: .9em;
 `
 
-export default props => (
-	<Container to={props.data.path}>
-		<div>
-			<ImageWrapper>
-				<Img sizes={props.data.thumbnail} />
-			</ImageWrapper>
-			<Info>
-				<Title>{props.data.title}</Title>
-				<Time>
-					<time dateTime="2008-02-14 20:00">{props.data.date} </time>&middot; {props.data.timeToRead} min read
-				</Time>
-				<Excerpt>{props.data.excerpt}</Excerpt>
-			</Info>
-		</div>
-	</Container>
-)
+const Card = ({ data }) => {
+	const image = getImage(data.thumbnail)
+	return (
+		<Container to={data.path}>
+			<div>
+				<ImageWrapper>
+					<GatsbyImage
+						image={image}
+						alt={data.title}
+						style={{ height: '100%' }}
+					/>
+				</ImageWrapper>
+				<Info>
+					<Title>{data.title}</Title>
+					<Description>{data.excerpt}</Description>
+					<Meta>
+						<span>{data.date} • {data.timeToRead} min read</span>
+					</Meta>
+				</Info>
+			</div>
+		</Container>
+	)
+}
+
+export default Card
