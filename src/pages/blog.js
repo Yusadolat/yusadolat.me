@@ -7,7 +7,6 @@ import Card from '../components/Card'
 import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 
-
 const PostsWrapper = styled.div`
 	padding: 0 15px;
 	max-width: 1060px;
@@ -30,9 +29,6 @@ class Blog extends React.Component {
 								<div className="row center-xs">
 									<div className="HeaderBlog__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
 										<h2 className="HeaderBlog__title Page__title">Blog</h2>
-										{/*
-										<p className="HeaderBlog__description Page__description">About programming and more.</p>
-										*/}
 									</div>
 								</div>
 							</div>
@@ -43,13 +39,14 @@ class Blog extends React.Component {
 									if (node.frontmatter.published)
 										return (												
 											<Card
+												key={node.frontmatter.path}
 												data={
 													{
 														title: node.frontmatter.title,
-														thumbnail: node.fields.thumbnail.childImageSharp.sizes,
+														thumbnail: node.frontmatter.thumbnail,
 														excerpt: node.excerpt,
 														date: node.frontmatter.date,
-														path: `/${node.frontmatter.path}`,
+														path: node.frontmatter.path,
 														timeToRead: node.timeToRead
 													}
 												}/>
@@ -79,26 +76,17 @@ export const queryBlog = graphql`
 					node {
 						excerpt(pruneLength: 240)
 						timeToRead
-						fields {
-							thumbnail {
-								childImageSharp {
-									sizes {
-										...GatsbyImageSharpSizes_tracedSVG
-								}
-							}
+						frontmatter {
+							date(formatString: "DD MMMM, YYYY")
+							title
+							path
+							published
+							thumbnail
 						}
-					}
-					frontmatter {
-						date(formatString: "DD MMMM, YYYY")
-						title
-						path
-						thumbnail
-						published
 					}
 				}
     		}
    	}
-  }
 `
 
 export default Blog

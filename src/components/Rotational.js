@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 export default props => (
 	<div className="Rotational">	
@@ -13,7 +13,7 @@ export default props => (
 			<div className="Rotational__item laptop"></div>
 			<div className="Rotational__item headphones"></div>
 			<div className="Rotational__avatar-container">
-				<Img sizes={ props.avatar.sizes }/>
+				<GatsbyImage image={getImage(props.avatar)} alt="Avatar" />
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import get from "lodash/get";
 
@@ -41,7 +41,7 @@ class About extends React.Component {
             <div className="row center-xs">
               <div className="About__img-container col-xs-12 col-md-6">
                 <div className="About__img">
-                  <Img sizes={this.props.data.aboutImage.sizes} />{" "}
+                  <GatsbyImage image={getImage(this.props.data.aboutImage)} alt="About Me" />{" "}
                 </div>{" "}
               </div>{" "}
               <div className="About__interests col-xs-12 col-md-6 text-left first-md">
@@ -86,18 +86,14 @@ export const queryAbout = graphql`
   query QueryAbout {
     site {
       siteMetadata {
-        title
         siteUrl
+        title
       }
     }
-    aboutImage: imageSharp(
-      fluid: { originalName: { regex: "/about-image.jpg/" } }
-    ) {
-      sizes(maxWidth: 960) {
-        ...GatsbyImageSharpSizes_tracedSVG
-      }
+    aboutImage: imageSharp(fluid: { originalName: { regex: "/me.jpg/" } }) {
+      gatsbyImageData(width: 720, layout: CONSTRAINED)
     }
   }
-`;
+`
 
 export default About;

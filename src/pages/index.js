@@ -8,6 +8,7 @@ import Rotational from "../components/Rotational";
 import SEO from "../components/SEO";
 import Social from "../components/Social";
 import Layout from "../components/Layout";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 class Index extends React.Component {
   render() {
@@ -35,7 +36,7 @@ class Index extends React.Component {
                   </AwesomeButton>
                 </div>
                 <div className="col-xs-12 col-lg-7">
-                  <Rotational avatar={data.avatar} />
+                  <GatsbyImage image={data.avatar} alt="Avatar" />
                 </div>
               </div>
             </div>
@@ -49,9 +50,7 @@ class Index extends React.Component {
 export const queryHome = graphql`
   query QueryHome {
     avatar: imageSharp(fluid: { originalName: { regex: "/avatar2.jpeg/" } }) {
-      sizes(maxWidth: 720) {
-        ...GatsbyImageSharpSizes_tracedSVG
-      }
+      gatsbyImageData(width: 720, layout: CONSTRAINED)
     }
     site {
       siteMetadata {

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default props => (
   <div className="AuthorPostFooter">
     <div className="AuthorPostFooter__header">
-      <Img className="AuthorPostFooter__image" sizes={props.avatar.sizes} />
+      <GatsbyImage className="AuthorPostFooter__image" image={getImage(props.avatar)} alt="Author" />
     </div>
     <div className="AuthorPostFooter__body">
       <p className="AuthorPostFooter__written by">
