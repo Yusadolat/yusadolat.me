@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
-import get from "lodash/get";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { HTMLContent } from "../components/Content";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
-import Project from "./Project";
 import Post from "./Post/Post";
 
-export default class BlogPostTemplate extends React.Component {
-  state = {
-    location: "",
-    show_share: false
-  };
+const BlogPostTemplate = ({ data, pageContext, location }) => {
+  const [showShare, setShowShare] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState("");
 
-  componentDidMount() {
-    let links = document.getElementsByTagName("a");
+  useEffect(() => {
+    // Update links with images
+    const links = document.getElementsByTagName("a");
     for (const link of links) {
       if (
         link.getElementsByTagName("img").length > 0 ||
@@ -24,90 +22,83 @@ export default class BlogPostTemplate extends React.Component {
         link.style.backgroundImage = "inherit";
       }
     }
-    this.setState({ location: window.location.href });
-    let body = document.documentElement;
-    let contentY = document.getElementById("Post_content").offsetTop;
-    let height = document.getElementById("Post_content").clientHeight;
 
-    const scrollListenerShare = () => {
-      let y = body.scrollTop - contentY + 110;
-      let show = y >= 0 && y - 0 <= height - 340;
+    setCurrentLocation(window.location.href);
 
-      if (this.state.show_share !== show) {
-        this.setState({ show_share: show });
-      }
-    };
+    // Setup scroll listener for share button
+    const contentElement = document.getElementById("Post_content");
+    if (contentElement) {
+      const contentY = contentElement.offsetTop;
+      const height = contentElement.clientHeight;
 
-    window.addEventListener("scroll", scrollListenerShare);
+      const scrollListenerShare = () => {
+        const y = window.scrollY - contentY + 110;
+        const show = y >= 0 && y - 0 <= height - 340;
+        setShowShare(show);
+      };
+
+      window.addEventListener("scroll", scrollListenerShare);
+      return () => window.removeEventListener("scroll", scrollListenerShare);
+    }
+  }, []);
+
+  const post = data.markdownRemark;
+  const { previous, next } = pageContext;
+  const { siteUrl } = data.site.siteMetadata;
+
+  if (!post || !data.site?.siteMetadata) {
+    return <div>Error: Post data not found.</div>;
   }
 
-  render() {
-    const post = this.props.data.markdownRemark;
-    const siteMetadata = get(this.props, "data.site.siteMetadata");
-    const { previous, next } = this.props.pageContext;
-    return (
-      <Layout location={this.props.location}>
-        <div>
-          <SEO
-            title={post.frontmatter.title}
-            url={`${siteMetadata.siteUrl}/${post.frontmatter.path}`}
-            description={post.frontmatter.description}
-            isPost={true}
-          />
-          {post.frontmatter.model === "post" ? (
-            <Post
-              {...post}
-              {...siteMetadata}
-              previous={previous}
-              next={next}
-              content={post.html}
-              contentComponent={HTMLContent}
-              image={post.frontmatter.thumbnail}
-              avatar={this.props.data.avatar}
-            />
-          ) : (
-            <Project
-              {...post}
-              {...siteMetadata}
-              previous={previous}
-              next={next}
-              content={post.html}
-              contentComponent={HTMLContent}
-              image={post.frontmatter.thumbnail}
-              avatar={this.props.data.avatar}
-            />
-          )}
-        </div>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={location}>
+      <div>
+        <SEO
+          title={post.frontmatter.title}
+          url={`${siteUrl}${post.fields.slug}`}
+          description={post.frontmatter.description}
+          isPost={true}
+        />
+        <Post
+          {...post}
+          {...data.site.siteMetadata}
+          previous={previous}
+          next={next}
+          content={post.html}
+          contentComponent={HTMLContent}
+          showShare={showShare}
+          location={currentLocation}
+        />
+      </div>
+    </Layout>
+  );
+};
+
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    avatar: imageSharp(fluid: { originalName: { regex: "/avatar2.jpeg/" } }) {
-      gatsbyImageData(width: 720, layout: CONSTRAINED)
+    site {
+      siteMetadata {
+        title
+        author
+        siteUrl
+      }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
       timeToRead
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
-        subtitle
         date(formatString: "DD MMMM, YYYY")
-        model
         description
-        path
-        thumbnail
         tags
-        stack
-        roles
-        client
-        repository
-        website
-        licence
+        published
       }
     }
   }
