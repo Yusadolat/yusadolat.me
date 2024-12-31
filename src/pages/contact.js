@@ -4,7 +4,7 @@ import get from "lodash/get";
 
 import ContactForm from "../components/ContactForm";
 import ContactSocial from "../components/ContactSocial";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import Layout from "../components/Layout";
 
 class Contact extends React.Component {
@@ -13,7 +13,7 @@ class Contact extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div className="Contact">
-          <SEO title="Contact me" url={`${siteUrl}/contact`} />{" "}
+          <Seo title="Contact me" url={`${siteUrl}/contact`} />{" "}
           <section className="HeaderContact Page">
             <div className="container">
               <div className="row center-xs">

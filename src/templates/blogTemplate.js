@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 import { HTMLContent } from "../components/Content";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import Layout from "../components/Layout";
 import Post from "./Post/Post";
 
@@ -53,7 +52,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
       <div>
-        <SEO
+        <Seo
           title={post.frontmatter.title}
           url={`${siteUrl}${post.fields.slug}`}
           description={post.frontmatter.description}
