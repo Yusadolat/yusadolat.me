@@ -71,7 +71,7 @@ export const queryPortfolio = graphql`
     }
 
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { model: { eq: "project"} }}
     ) {
       edges {

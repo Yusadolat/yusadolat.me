@@ -1,7 +1,7 @@
 import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-export default props => (
+const Rotational = props => (
 	<div className="Rotational">	
 		<div className="Rotational__orbit">
 			<div className="Rotational__item computer"></div>
@@ -18,3 +18,5 @@ export default props => (
 		</div>
 	</div>
 )
+
+export default Rotational;

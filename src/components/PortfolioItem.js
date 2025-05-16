@@ -134,7 +134,7 @@ const BottomData = styled.div`
 	justify-content: space-between;	
 `
 
-export default props => (
+const PortfolioItem = props => (
   <ItemLink>
     <ItemWrapper to={props.data.path}>
       <CoverWrapper>
@@ -220,3 +220,5 @@ export default props => (
     </BottomData>
   </ItemLink>
 );
+
+export default PortfolioItem;

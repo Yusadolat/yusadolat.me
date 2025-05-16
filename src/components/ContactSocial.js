@@ -6,7 +6,7 @@ const ContactSocialWrapper = styled.div`
 	text-align: center;
 `
 
-export default props => (
+const ContactSocial = props => (
 	<ContactSocialWrapper>
 		<AwesomeButton
 			className="ContactSocial__icon"
@@ -58,3 +58,5 @@ export default props => (
 		</AwesomeButton>
 	</ContactSocialWrapper>
 )
+
+export default ContactSocial;
