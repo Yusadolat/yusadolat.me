@@ -290,7 +290,7 @@ const groups = [
   }
 ];
 
-export default props => (
+const Stack = props => (
   <div className="Stack">
     <div className="">
       <h2 className="Page__title">My Stack</h2>
@@ -300,3 +300,5 @@ export default props => (
     ))}
   </div>
 );
+
+export default Stack;

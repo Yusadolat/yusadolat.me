@@ -3,12 +3,10 @@ import { graphql } from "gatsby";
 import { AwesomeButton } from "react-awesome-button";
 import get from "lodash/get";
 import Info from "../components/Info";
-
 import Rotational from "../components/Rotational";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import Social from "../components/Social";
 import Layout from "../components/Layout";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 class Index extends React.Component {
   render() {
@@ -17,7 +15,7 @@ class Index extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <SEO title="" url={siteUrl} />
+          <Seo title="" url={siteUrl} />
           <main className="Header-Home">
             <div className="container">
               <div className="row">
@@ -36,7 +34,7 @@ class Index extends React.Component {
                   </AwesomeButton>
                 </div>
                 <div className="col-xs-12 col-lg-7">
-                  <GatsbyImage image={data.avatar} alt="Avatar" />
+                  <Rotational avatar={data.avatar} />
                 </div>
               </div>
             </div>
@@ -49,16 +47,17 @@ class Index extends React.Component {
 
 export const queryHome = graphql`
   query QueryHome {
-    avatar: imageSharp(fluid: { originalName: { regex: "/avatar2.jpeg/" } }) {
-      gatsbyImageData(width: 720, layout: CONSTRAINED)
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, quality: 100, layout: CONSTRAINED)
+      }
     }
     site {
       siteMetadata {
-        title
         siteUrl
       }
     }
   }
-`;
+`
 
-export default Index;
+export default Index

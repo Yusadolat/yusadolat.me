@@ -2,7 +2,7 @@ import React from 'react'
 import { withPrefix } from 'gatsby'
 
 
-export default props => (
+const Item = props => (
 	<div className='Stack__item' >
 		<img
 			className="Stack__item__img"
@@ -28,3 +28,5 @@ export default props => (
 
 	</div>
 )
+
+export default Item;

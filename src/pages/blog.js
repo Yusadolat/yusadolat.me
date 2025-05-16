@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import styled from 'styled-components'
 
 import Card from '../components/Card'
-import SEO from '../components/SEO'
+import Seo from '../components/SEO'
 import Layout from '../components/Layout'
 
 const PostsWrapper = styled.div`
@@ -20,7 +20,7 @@ class Blog extends React.Component {
 		return (
 				<Layout location={ this.props.location }>
 					<div className="Blog">
-						<SEO
+						<Seo
 							title="Blog"
 							url={`${siteUrl}/blog`}
 						/>
@@ -70,7 +70,7 @@ export const queryBlog = graphql`
       	}
     	}
     	allMarkdownRemark(
-    		sort: { fields: [frontmatter___date], order: DESC }
+    		sort: {frontmatter: {date: DESC}}
     		filter: { frontmatter: { model: { eq: "post"} }}) {
 				edges {
 					node {

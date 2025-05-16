@@ -7,6 +7,7 @@ module.exports = {
     siteUrl: "https://yusadolat.me"
   },
   plugins: [
+    "gatsby-plugin-schema-snapshot",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
     {
@@ -14,7 +15,8 @@ module.exports = {
       options: {
         sassOptions: {
           precision: 6
-        }
+        },
+        useResolveUrlLoader: true
       }
     },
     {
@@ -46,7 +48,8 @@ module.exports = {
             options: {
               maxWidth: 590,
               quality: 90,
-              linkImagesToOriginal: true
+              linkImagesToOriginal: true,
+              withWebp: true
             }
           },
           {
@@ -72,7 +75,8 @@ module.exports = {
           {
             resolve: "gatsby-remark-external-links",
             options: {
-              target: "_blank"
+              target: "_blank",
+              rel: ["nofollow", "noopener", "noreferrer"]
             }
           }
         ]
@@ -82,7 +86,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-129353757-1",
-        head: false
+        head: true,
+        anonymize: true,
+        respectDNT: true
       }
     },
     {
@@ -94,7 +100,10 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/logo.jpg`
+        icon: `src/assets/images/logo.jpg`,
+        icon_options: {
+          purpose: `any maskable`
+        }
       }
     },
     {

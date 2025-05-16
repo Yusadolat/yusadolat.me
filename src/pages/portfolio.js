@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import get from 'lodash/get'
 
 import Item from '../components/PortfolioItem'
-import SEO from '../components/SEO'
+import Seo from '../components/SEO'
 import Layout from '../components/Layout'
 
 class Portfolio extends React.Component {
@@ -13,7 +13,7 @@ class Portfolio extends React.Component {
 		return (
 				<Layout location={ this.props.location }>
 					<div className="Portfolio">
-						<SEO
+						<Seo
 						  title="Portafolio"
 						  url={`${siteUrl}/portfolio`}
 						/>
@@ -71,7 +71,7 @@ export const queryPortfolio = graphql`
     }
 
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { model: { eq: "project"} }}
     ) {
       edges {

@@ -34,7 +34,7 @@ const Description = styled.p`
   }
 `;
 
-export default props => (
+const NotFoundPage = props => (
   <Layout location={props.location}>
     <Container>
       <Helmet>
@@ -103,3 +103,5 @@ export default props => (
     </Container>{" "}
   </Layout>
 );
+
+export default NotFoundPage;

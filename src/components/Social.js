@@ -26,7 +26,7 @@ const SocialIcon = styled.a`
 		transform: scale(.9);
 	}
 `
-export default props => (
+const Social = props => (
 	<SocialWrapper>
 		<SocialIcon
 			className="github--hover"
@@ -70,3 +70,5 @@ export default props => (
 		</SocialIcon>
 	</SocialWrapper>
 )
+
+export default Social;

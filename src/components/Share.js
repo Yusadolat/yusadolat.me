@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default props => (
+const Share = props => (
 		<div className={ `Share `
 			+ (props.fixed ? "Share--fixed" : "")
 			+ (props.show ? "" : " hide") }>
@@ -31,3 +31,5 @@ export default props => (
 			</a>
 	</div>
 )
+
+export default Share;

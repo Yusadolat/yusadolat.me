@@ -607,55 +607,44 @@ $border-radius: 3px;
 				width: 100%;
 				height: 100%;
 				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 
-				&:before {
-					content: '';
-					position: absolute;
-					background-size: cover;
-					width: 38px;
-					height: 38px;
+				&.computer { transform: rotate(270deg); }
+				&.hacker { transform: rotate(45deg); }
+				&.protection { transform: rotate(90deg); }
+				&.server { transform: rotate(135deg); }
+				&.www { transform: rotate(180deg); }
+				&.browser { transform: rotate(225deg); }
+				&.laptop { transform: rotate(315deg); }
+				&.headphones { transform: rotate(360deg); }
+			}
 
-					@include breakpoint(sm) {
-						width: 55px;
-						height: 55px;
-					}
+			&__icon {
+				width: 38px !important;
+				height: 38px !important;
+				filter: grayscale(100%);
+				opacity: 0.8;
+				transition: all 0.3s ease;
+				animation: rotate-back 10s linear infinite;
+
+				@include breakpoint(sm) {
+					width: 55px !important;
+					height: 55px !important;
 				}
 
-				&.computer {
-					&:before {
-						height: 55px;
-						width: 45px;
-						@include breakpoint(sm) {
-							height: 65px;
-							width: 55px;
-						}
-					}
+				&:hover {
+					filter: grayscale(0%);
+					opacity: 1;
 				}
-				&.hacker {
-					&:before {
-						width: 48px;
-						height: 48px;
-						@include breakpoint(sm) {
-							width: 65px;
-							height: 65px;
-						}
-					}
-				}
-				@include rotationalItem(hacker, 45deg, 'icons/linux-original.svg');
-				@include rotationalItem(protection, 90deg, 'icons/algorithm.svg');
-				@include rotationalItem(server, 135deg, 'icons/spotify.svg');
-				@include rotationalItem(www, 180deg, 'icons/coffee.svg');
-				@include rotationalItem(browser, 225deg, 'icons/idea.svg');
-				@include rotationalItem(computer, 270deg, 'icons/laptop-2.png');
-				@include rotationalItem(laptop, 315deg, 'icons/books.svg');
-				@include rotationalItem(headphones, 360deg, 'icons/machine-learning.svg');
 			}
 
 			&__avatar-container {
 				width: 115px;
 				border-radius: 50%;
 				overflow: hidden;
-				opacity: .9;
+				opacity: 0.9;
 				animation: float 3s ease-in-out infinite;
 				@include breakpoint(sm) {
 					width: 175px;
@@ -663,6 +652,27 @@ $border-radius: 3px;
 				@include breakpoint(lg) {
 					width: 200px;
 				}
+			}
+		}
+
+		@keyframes rotate-back {
+			from {
+				transform: rotate(360deg);
+			}
+			to {
+				transform: rotate(0deg);
+			}
+		}
+
+		@keyframes float {
+			0% {
+				transform: translatey(0px);
+			}
+			50% {
+				transform: translatey(-10px);
+			}
+			100% {
+				transform: translatey(0px);
 			}
 		}
 
@@ -1170,21 +1180,6 @@ $border-radius: 3px;
 			}
 			@include breakpoint(md) {
 				width: 21px;
-			}
-		}
-
-		@keyframes float {
-			0% {
-				box-shadow: 0 5px 15px 0px rgba(0,0,0,0.5);
-				transform: translatey(0px);
-			}
-			50% {
-				box-shadow: 0 15px 15px 0px rgba(0,0,0,0.2);
-				transform: translatey(-4px);
-			}
-			100% {
-				box-shadow: 0 5px 15px 0px rgba(0,0,0,0.5);
-				transform: translatey(0px);
 			}
 		}
 

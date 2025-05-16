@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import get from "lodash/get";
 
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import Layout from "../components/Layout";
 import Stack from "../components/Stack";
 
@@ -13,7 +13,7 @@ class About extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div className="About">
-          <SEO title="About" url={`${siteUrl}/about`} />{" "}
+          <Seo title="About" url={`${siteUrl}/about`} />{" "}
           <section className="HeaderAbout Page">
             <div className="container">
               <div className="row center-xs">

@@ -1,103 +1,67 @@
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
-// Add schema customization
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-    type MarkdownRemarkFrontmatter {
-      title: String!
-      subtitle: String
-      date: Date @dateformat
-      model: String
-      description: String
-      path: String
-      thumbnail: String
-      category: String
-      tags: [String]
-      stack: [String]
-      roles: [String]
-      client: String
-      repository: String
-      website: String
-      licence: String
-    }
-  `
-  createTypes(typeDefs)
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-   const { createNodeField } = actions
-
-   if (node.internal.type === `MarkdownRemark`) {
-      // Create slug field
-      createNodeField({
-         name: `slug`,
-         node,
-         value: node.frontmatter.path,
-      })
-   }
-}
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `content` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
 
 exports.createPages = async ({ graphql, actions }) => {
-   const { createPage } = actions
-   const blogPost = path.resolve('./src/templates/blogTemplate.js')
-
-   const result = await graphql(`
-      {
-         allMarkdownRemark(
-            sort: { fields: [frontmatter___date], order: DESC }
-            limit: 1000
-         ) {
-            edges {
-               node {
-                  fields {
-                     slug
-                  }
-                  frontmatter {
-                     model
-                     title
-                     description
-                     path
-                     date(formatString: "MMMM DD, YYYY")
-                     tags
-                  }
-               }
+  const { createPage } = actions;
+  const result = await graphql(`
+    query {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
+        edges {
+          node {
+            fields {
+              slug
             }
-         }
+            frontmatter {
+              title
+            }
+          }
+        }
       }
-   `)
+    }
+  `);
 
-   if (result.errors) {
-      console.log(result.errors)
-      throw result.errors
-   }
+  if (result.errors) {
+    console.error(result.errors);
+    throw new Error("Error querying Markdown data");
+  }
 
-   const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.allMarkdownRemark.edges;
 
-   // Create blog posts pages
-   posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+  posts.forEach((post, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
 
-      createPage({
-         path: post.node.fields.slug,
-         component: blogPost,
-         context: {
-            slug: post.node.fields.slug,
-            previous,
-            next,
-         },
-      })
-   })
-}
+    createPage({
+      path: post.node.fields.slug,
+      component: require.resolve(`./src/templates/blogTemplate.js`),
+      context: {
+        slug: post.node.fields.slug,
+        previous,
+        next,
+      },
+    });
+  });
+};
 
 // Add custom webpack config to handle image imports
 exports.onCreateWebpackConfig = ({ actions }) => {
-   actions.setWebpackConfig({
-      resolve: {
-         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        path: require.resolve("path-browserify"),
       },
-   })
-}
+    },
+  });
+};

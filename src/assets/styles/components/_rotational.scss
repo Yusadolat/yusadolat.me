@@ -1,0 +1,95 @@
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Rotational {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__orbit {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    animation: orbit 20s linear infinite;
+  }
+
+  &__item {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.computer { 
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url('../images/icons/computer.svg');
+    }
+    &.hacker {
+      top: 15%;
+      right: 0;
+      background-image: url('../images/icons/hacker.svg');
+    }
+    &.server {
+      bottom: 15%;
+      right: 0;
+      background-image: url('../images/icons/server.svg');
+    }
+    &.www {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url('../images/icons/www.svg');
+    }
+    &.browser {
+      bottom: 15%;
+      left: 0;
+      background-image: url('../images/icons/browser.svg');
+    }
+    &.protection {
+      top: 15%;
+      left: 0;
+      background-image: url('../images/icons/protection.svg');
+    }
+    &.laptop {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-image: url('../images/icons/laptop.svg');
+    }
+    &.headphones {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-image: url('../images/icons/headphones.svg');
+    }
+  }
+
+  &__avatar-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+} 

@@ -1,4 +1,6 @@
-const actualPage = (pathname) => {  
+const actualPage = (pathname = '') => {
+    if (!pathname) return '';
+    
     while(pathname[pathname.length - 1] === '/') {
         pathname = pathname.slice(0, pathname.length - 1);
     }   
