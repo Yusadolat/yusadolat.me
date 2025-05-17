@@ -55,8 +55,9 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 };
 
-// Add custom webpack config to handle image imports
-exports.onCreateWebpackConfig = ({ actions }) => {
+// Add custom webpack config
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  // Existing path-browserify fallback
   actions.setWebpackConfig({
     resolve: {
       fallback: {
@@ -64,4 +65,19 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       },
     },
   });
+
+  // Nullify sweetalert2 during SSR
+  if (stage === "build-html" || stage === "develop-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /sweetalert2/,
+            use: loaders.null(),
+          },
+
+        ],
+      },
+    });
+  }
 };

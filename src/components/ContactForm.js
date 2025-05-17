@@ -1,5 +1,4 @@
 import React from "react";
-import Swal from "sweetalert2";
 import { AwesomeButton } from "react-awesome-button";
 import styled from "styled-components";
 
@@ -47,7 +46,8 @@ class ContactForm extends React.Component {
         ...this.state
       })
     })
-      .then(() => {
+      .then(async () => { // Made async to use await for dynamic import
+        const Swal = (await import("sweetalert2")).default;
         Swal({
           type: "success",
           title: "Message sent",

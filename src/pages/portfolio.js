@@ -67,6 +67,7 @@ export const queryPortfolio = graphql`
       siteMetadata {
         title
         description
+        siteUrl
       }
     }
 
@@ -87,6 +88,7 @@ export const queryPortfolio = graphql`
             thumbnail
             model
             stack
+            tags
             repository
             website
           }
