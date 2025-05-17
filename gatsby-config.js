@@ -113,6 +113,14 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: 'yusadolat.me-blog',
+        region: 'us-east-1',
+        acl: null, // Recommended for CloudFront
+      },
+    },
+    {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {},
