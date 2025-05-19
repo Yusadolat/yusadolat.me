@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar from './Navbar'
-import Footer from './Footer'
+import Footer from './Footer/Footer'
 import { ThemeProvider } from 'styled-components'
 
 import { actualPage } from '../utils'
@@ -17,7 +17,7 @@ const Layout = ({ children, location }) => {
 		require('@webcomponents/custom-elements/custom-elements.min.js')
 	}, [])
 
-	return (				
+	return (                                
 		<div>
 			<Helmet>
 				<link
@@ -35,7 +35,7 @@ const Layout = ({ children, location }) => {
 				<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
 				<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
 				<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
-				<link rel="icon" type="image/png" sizes="32x32"	href="/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 				<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
 				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 				<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
@@ -51,7 +51,7 @@ const Layout = ({ children, location }) => {
 				<Footer/>
 				</>
 			</ThemeProvider>
-		</div>			
+		</div>                  
 	)
 }
 
