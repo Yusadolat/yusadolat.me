@@ -593,6 +593,9 @@ $border-radius: 3px;
 }
 
 .Rotational__avatar-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	width: 115px;
 	border-radius: 50%;
 	overflow: hidden;
@@ -619,13 +622,13 @@ $border-radius: 3px;
 
 		@keyframes float {
 			0% {
-				transform: translatey(0px);
+				transform: translate(-50%, -50%) translateY(0px);
 			}
 			50% {
-				transform: translatey(-10px);
+				transform: translate(-50%, -50%) translateY(-10px);
 			}
 			100% {
-				transform: translatey(0px);
+				transform: translate(-50%, -50%) translateY(0px);
 			}
 		}
 
