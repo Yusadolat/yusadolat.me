@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  repo: master
+  name: github
+  repo: Yusadolat/yusadolat.me
+  branch: dev
+
+local_backend: true
 
 media_folder: src/pages/posts/img/
 public_folder: /img
