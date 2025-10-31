@@ -2,10 +2,12 @@
 .cache
 node_modules
 .env
-.env.development
 yarn-error.log
 .idea
 
 # Build directory
 /public
-.DS_Store
+.DS_Store.
+
+# add .env.development
+.env.development
