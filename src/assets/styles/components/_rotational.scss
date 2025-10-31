@@ -1,9 +1,36 @@
 @keyframes orbit {
   from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes counter-rotate {
+  from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes counter-rotate-translateX {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(-360deg);
+  }
+}
+
+@keyframes counter-rotate-translateY {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-360deg);
   }
 }
 
@@ -16,7 +43,10 @@
   align-items: center;
 
   &__orbit {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 300px;
     height: 300px;
     animation: orbit 20s linear infinite;
@@ -29,50 +59,55 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    animation: counter-rotate 20s linear infinite;
 
-    &.computer { 
+    &.computer {
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      background-image: url('../images/icons/computer.svg');
+      background-image: url('../../images/icons/computer.svg');
+      animation: counter-rotate-translateX 20s linear infinite;
     }
     &.hacker {
       top: 15%;
       right: 0;
-      background-image: url('../images/icons/hacker.svg');
+      background-image: url('../../images/icons/hacker.svg');
     }
     &.server {
       bottom: 15%;
       right: 0;
-      background-image: url('../images/icons/server.svg');
+      background-image: url('../../images/icons/server.svg');
     }
     &.www {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      background-image: url('../images/icons/www.svg');
+      background-image: url('../../images/icons/www.svg');
+      animation: counter-rotate-translateX 20s linear infinite;
     }
     &.browser {
       bottom: 15%;
       left: 0;
-      background-image: url('../images/icons/browser.svg');
+      background-image: url('../../images/icons/browser.svg');
     }
     &.protection {
       top: 15%;
       left: 0;
-      background-image: url('../images/icons/protection.svg');
+      background-image: url('../../images/icons/protection.svg');
     }
     &.laptop {
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      background-image: url('../images/icons/laptop.svg');
+      background-image: url('../../images/icons/laptop.svg');
+      animation: counter-rotate-translateY 20s linear infinite;
     }
     &.headphones {
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      background-image: url('../images/icons/headphones.svg');
+      background-image: url('../../images/icons/headphones.svg');
+      animation: counter-rotate-translateY 20s linear infinite;
     }
   }
 
@@ -85,7 +120,8 @@
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    
+    z-index: 10;
+
     img {
       width: 100%;
       height: 100%;

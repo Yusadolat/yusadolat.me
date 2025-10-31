@@ -5,14 +5,12 @@ import get from "lodash/get";
 import ContactForm from "../components/ContactForm";
 import ContactSocial from "../components/ContactSocial";
 import Seo from "../components/SEO";
-import Layout from "../components/Layout";
 
 class Contact extends React.Component {
   render() {
     const siteUrl = get(this, "props.data.site.siteMetadata.siteUrl");
     return (
-      <Layout location={this.props.location}>
-        <div className="Contact">
+      <div className="Contact">
           <Seo title="Contact me" url={`${siteUrl}/contact`} />{" "}
           <section className="HeaderContact Page">
             <div className="container">
@@ -46,8 +44,7 @@ class Contact extends React.Component {
               </div>{" "}
             </div>{" "}
           </div>{" "}
-        </div>{" "}
-      </Layout>
+        </div>
     );
   }
 }
