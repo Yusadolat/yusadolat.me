@@ -22,7 +22,7 @@ export const useInfo = () => {
       } catch (err) {}
     };
     setGithubInfo();
-  }, []);
+  }, [setInfo]);
 
   return info;
 };

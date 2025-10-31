@@ -2,6 +2,7 @@
 .cache
 node_modules
 .env
+.env.development
 yarn-error.log
 .idea
 
