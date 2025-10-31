@@ -44,26 +44,29 @@ const Copy = styled.p `
 	}
 `
 
-const Footer = props => (
-  <Container>
-    <Social>
-      <Icon target="_blank" href="https://www.github.com/yusadolat">
-        <img alt="Github Yusuf Adeyemo" src="https://icongr.am/fontawesome/github.svg?size=20&color=282a2d" />
-      </Icon>
-      <Icon target="_blank" href="https://twitter.com/yusadolat">
-        <img alt="Twitter Yusuf Adeyemo" src="https://icongr.am/fontawesome/twitter.svg?size=20&color=282a2d" />
-      </Icon>
-      <Icon target="_blank" href="https://www.linkedin.com/in/yusadolat">
-        <img alt="Linkedin Yusuf Adeyemo" src="https://icongr.am/fontawesome/linkedin.svg?size=20&color=282a2d" />
-      </Icon>
-      <Icon target="_blank" href="https://www.instagram.com/yusadolat">
-        <img alt="Instagram Yusuf Adeyemo" src="https://icongr.am/fontawesome/instagram.svg?size=20&color=282a2d" />
-      </Icon>
-    </Social>
-    <Copy>
-      2021 - All rights reserved. Made with <span> </span> by <a href="https://twitter.com/yusadolat" target="_blank" rel="noopener noreferrer">Yusuf Adeyemo</a>
-    </Copy>
-  </Container>
-);
+const Footer = props => {
+  const currentYear = new Date().getFullYear();
+  return (
+    <Container>
+      <Social>
+        <Icon target="_blank" href="https://www.github.com/yusadolat">
+          <img alt="Github Yusuf Adeyemo" src="https://icongr.am/fontawesome/github.svg?size=20&color=282a2d" />
+        </Icon>
+        <Icon target="_blank" href="https://twitter.com/yusadolat">
+          <img alt="Twitter Yusuf Adeyemo" src="https://icongr.am/fontawesome/twitter.svg?size=20&color=282a2d" />
+        </Icon>
+        <Icon target="_blank" href="https://www.linkedin.com/in/yusadolat">
+          <img alt="Linkedin Yusuf Adeyemo" src="https://icongr.am/fontawesome/linkedin.svg?size=20&color=282a2d" />
+        </Icon>
+        <Icon target="_blank" href="https://www.instagram.com/yusadolat">
+          <img alt="Instagram Yusuf Adeyemo" src="https://icongr.am/fontawesome/instagram.svg?size=20&color=282a2d" />
+        </Icon>
+      </Social>
+      <Copy>
+        {currentYear} - All rights reserved. Made with <span> </span> by <a href="https://twitter.com/yusadolat" target="_blank" rel="noopener noreferrer">Yusuf Adeyemo</a>
+      </Copy>
+    </Container>
+  );
+};
 
 export default Footer;

@@ -4,15 +4,13 @@ import { graphql } from "gatsby";
 import get from "lodash/get";
 
 import Seo from "../components/SEO";
-import Layout from "../components/Layout";
 import Stack from "../components/Stack";
 
 class About extends React.Component {
   render() {
     const siteUrl = get(this, "props.data.site.siteMetadata.siteUrl");
     return (
-      <Layout location={this.props.location}>
-        <div className="About">
+      <div className="About">
           <Seo title="About" url={`${siteUrl}/about`} />{" "}
           <section className="HeaderAbout Page">
             <div className="container">
@@ -76,8 +74,7 @@ class About extends React.Component {
             </div>{" "}
           </div>{" "}
           <Stack />
-        </div>{" "}
-      </Layout>
+        </div>
     );
   }
 }

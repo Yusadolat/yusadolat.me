@@ -1,8 +1,8 @@
 import React from 'react'
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 
-export default props => (
-  <div className="Rotational">  
+const Rotational = props => (
+  <div className="Rotational">
     <div className="Rotational__orbit">
       <div className="Rotational__item computer">
         <StaticImage src="../../assets/images/icons/laptop-2.png" alt="Computer" className="Rotational__icon" />
@@ -28,9 +28,11 @@ export default props => (
       <div className="Rotational__item headphones">
         <StaticImage src="../../assets/images/icons/machine-learning.svg" alt="Headphones" className="Rotational__icon" />
       </div>
-      <div className="Rotational__avatar-container">
-        <GatsbyImage image={getImage(props.avatar)} alt="Avatar" />
-      </div>
+    </div>
+    <div className="Rotational__avatar-container">
+      <GatsbyImage image={getImage(props.avatar)} alt="Avatar" />
     </div>
   </div>
 )
+
+export default Rotational

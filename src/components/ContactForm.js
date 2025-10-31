@@ -11,21 +11,6 @@ const encode = data => {
 const Container = styled.div`
   padding: 20px 10px;
 `;
-const Item = styled.div`
-  padding: 15px 0;
-`;
-const Label = styled.p`
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 1.45;
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
-`;
-const Submit = styled(AwesomeButton)`
-  width: 140px !important;
-`;
 
 class ContactForm extends React.Component {
   state = {

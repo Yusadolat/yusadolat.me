@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-export default props => (
+const AuthorPostFooter = props => (
 	<div className='AuthorPostFooter'>
 		<div className="AuthorPostFooter__header">
 			<GatsbyImage className="AuthorPostFooter__image" image={getImage(props.avatar)} alt="Author" />
@@ -29,3 +29,5 @@ export default props => (
 		</div>
 	</div>
 )
+
+export default AuthorPostFooter

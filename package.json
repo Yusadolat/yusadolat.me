@@ -64,12 +64,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "XDG_CONFIG_HOME=.cache/xdg gatsby build",
+    "develop": "XDG_CONFIG_HOME=.cache/xdg gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "deploy": "gatsby-plugin-s3 deploy --yes; export AWS_PAGER=\"\"; aws cloudfront create-invalidation --distribution-id E3SVLI6GPM9LG9 --paths '/*';",
+    "deploy": "XDG_CONFIG_HOME=.cache/xdg gatsby-plugin-s3 deploy --yes; export AWS_PAGER=\"\"; aws cloudfront create-invalidation --distribution-id E3SVLI6GPM9LG9 --paths '/*';",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "gatsby clean"
+    "clean": "XDG_CONFIG_HOME=.cache/xdg gatsby clean"
   },
   "devDependencies": {
     "prettier": "^3.1.1",

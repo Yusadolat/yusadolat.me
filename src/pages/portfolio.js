@@ -4,15 +4,13 @@ import get from 'lodash/get'
 
 import Item from '../components/PortfolioItem'
 import Seo from '../components/SEO'
-import Layout from '../components/Layout'
 
 class Portfolio extends React.Component {
 	render() {
 		const posts = get(this, 'props.data.allMarkdownRemark.edges') || []
 		const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
 		return (
-				<Layout location={ this.props.location }>
-					<div className="Portfolio">
+			<div className="Portfolio">
 						<Seo
 						  title="Portafolio"
 						  url={`${siteUrl}/portfolio`}
@@ -56,7 +54,6 @@ class Portfolio extends React.Component {
 							</div>
 						</div>
 					</div>
-				</Layout>
 		)
 	}
 }

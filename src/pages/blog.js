@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 import Card from '../components/Card'
 import Seo from '../components/SEO'
-import Layout from '../components/Layout'
 
 const PostsWrapper = styled.div`
 	padding: 0 15px;
@@ -18,8 +17,7 @@ class Blog extends React.Component {
 		const posts = get(this, 'props.data.allMarkdownRemark.edges') || []
 		const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
 		return (
-				<Layout location={ this.props.location }>
-					<div className="Blog">
+			<div className="Blog">
 						<Seo
 							title="Blog"
 							url={`${siteUrl}/blog`}
@@ -56,7 +54,6 @@ class Blog extends React.Component {
 							}
 						</PostsWrapper>
 					</div>
-				</Layout>
 		)
 	}
 }
