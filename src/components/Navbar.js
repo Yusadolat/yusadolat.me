@@ -102,6 +102,16 @@ class Navbar extends React.Component {
 							</li>
 							<li className='Navbar__item'>
 								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) }}
+									className={`Navbar__link ${ this.props.activePage === 'Tech Talks' ? 'active' : ''}`} to="/tech-talks">
+									<svg className="icon-item" version="1.1" width={36} height={36} viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+									  <path d="M29.55,19.29,20,15.47V5a1,1,0,0,0-2,0V15.47l-9.55,3.82a1,1,0,0,0-.58.92v9a1,1,0,0,0,1,1H28.13a1,1,0,0,0,1-1v-9A1,1,0,0,0,29.55,19.29ZM27.13,28.18H9.87V20.69l8.58-3.43v2.56a1,1,0,0,0,2,0V17.26l8.58,3.43Z"/>
+									  <rect x={0} y={0} width={36} height={36} fillOpacity={0} />
+									</svg>
+									Tech Talks
+								</Link>
+							</li>
+							<li className='Navbar__item'>
+								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) }}
 									className={`Navbar__link ${ this.props.activePage === 'About' ? 'active' : ''}`} to="/about">
 									<svg className="icon-item" version="1.1" width={36} height={36} viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 									  <path d="M18,17a7,7,0,1,0-7-7A7,7,0,0,0,18,17ZM18,5a5,5,0,1,1-5,5A5,5,0,0,1,18,5Z" /><path d="M30.47,24.37a17.16,17.16,0,0,0-24.93,0A2,2,0,0,0,5,25.74V31a2,2,0,0,0,2,2H29a2,2,0,0,0,2-2V25.74A2,2,0,0,0,30.47,24.37ZM29,31H7V25.73a15.17,15.17,0,0,1,22,0h0Z" />

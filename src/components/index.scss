@@ -1,6 +1,6 @@
-@import '../assets/styles/flex-box-grid';
+@use '../assets/styles/flex-box-grid' as *;
 // Use dedicated rotational styles for the homepage spinner
-@import '../assets/styles/components/rotational';
+@use '../assets/styles/components/rotational' as *;
 
 .twitter {
 	background: #00aced !important;
@@ -181,10 +181,6 @@ $border-radius: 3px;
 				font-family: $sans-serif-font;
 				color: #f06668;
 				font-size: 11vw;
-				@include breakpoint(md) {
-					font-size: 78px;
-				}
-
 				text-align: center;
 				line-height: 100%;
 				font-weight: 900;
@@ -197,6 +193,10 @@ $border-radius: 3px;
 				max-width: 800px;
 				margin-left: auto;
 				margin-right: auto;
+
+				@include breakpoint(md) {
+					font-size: 78px;
+				}
 			}
 
 			&__description {
@@ -382,11 +382,12 @@ $border-radius: 3px;
 				display: flex;
 				background: white;
 				transition: all 0s !important;
+				transition: right .4s !important;
+				right: -102%;
+
 				* {
 					transition: all 0s !important;
 				}
-				transition: right .4s !important;
-				right: -102%;
 				&.open {
 					transition: right .4s !important;
 					left: auto;
@@ -546,10 +547,26 @@ $border-radius: 3px;
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-start;
-				align-items: center;				
+				align-items: center;
 				&__title {
 					-webkit-text-stroke-color: #3fabbb;
 					margin-bottom: 5px;
+				}
+			}
+		}
+
+		.TechTalks {
+			.HeaderTechTalks {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				&__title {
+					-webkit-text-stroke-color: #f06668;
+					margin-bottom: 5px;
+				}
+				&__description {
+					max-width: 600px;
 				}
 			}
 		}
@@ -971,11 +988,12 @@ $border-radius: 3px;
 			
 				pre[class*="language-text"], code[class*="language-text"] {
 					font-size: 15px;
+					background: transparent;
+					color: inherit;
+
 					@include breakpoint(md) {
 						font-size: 1rem;
 					}
-					background: transparent;
-					color: inherit;
 				}
 				code.language-text {
 					font-size: .9em;

@@ -82,3 +82,40 @@ collections:
       - { label: Licence, name: licence, widget: string, default: MIT }
       - { label: Website, name: "website", widget: string, required: false }
       - { label: Body, name: body, widget: markdown }
+
+  - name: tech-talks
+    label: Tech Talks
+    folder: src/pages/tech-talks
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: Model, name: model, widget: hidden, default: tech-talk }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Path, name: path, widget: string }
+      - { label: "Featured Image", name: thumbnail, widget: image }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Location, name: location, widget: string }
+      - { label: Event Name, name: event, widget: string }
+      - { label: Audience Size, name: audience, widget: string, required: false }
+      - {
+          label: "Talk Type",
+          name: type,
+          widget: select,
+          options:
+            [
+              "Conference Talk",
+              "Workshop",
+              "Webinar",
+              "Panel Discussion",
+              "Keynote",
+              "Lightning Talk",
+            ],
+          default: "Conference Talk",
+        }
+      - { label: Duration, name: duration, widget: string, default: "45 minutes" }
+      - { label: Slides URL, name: slides, widget: string, required: false }
+      - { label: Video URL, name: video, widget: string, required: false }
+      - { label: Published, name: published, widget: boolean, default: true }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Body, name: body, widget: markdown }
