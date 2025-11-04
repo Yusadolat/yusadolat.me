@@ -30,7 +30,7 @@ class Contact extends React.Component {
                   </p>
                   <p className="Page__description">
                     {" "}
-                    <b> yusadolat@gmail.com </b>:
+                    <b> yusuf@yusadolat.me </b>
                   </p>
                 </div>{" "}
               </div>{" "}

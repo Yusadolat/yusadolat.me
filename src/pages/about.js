@@ -18,18 +18,22 @@ class About extends React.Component {
                 <div className="HeaderContact__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
                   <h2 className="About__title Page__title"> About Me </h2>{" "}
                   <p className="About__description Page__description">
-                    Hi, My name is Yusuf Adeyemo. I help startups deliver better
-                    software and provide more control over there environment and
-                    software development process with the help of modern tools
-                    and automation.
+                    Hi, I'm Yusuf Adeyemo, a Senior DevOps Engineer and Cloud Infrastructure
+                    Consultant with over 7 years of experience helping organizations build
+                    reliable, scalable, and secure cloud infrastructure.
                   </p>
                   <p className="About__decription Page__description">
-                    I currently Work with Vendii (Vendii is building a SaaS cloud suite of vending
-                    tools, initially with a focus on fleet management and an
-                    automated multi-tiered warehousing tool that integrates
-                    directly with IoT vending machines in real-time) as a DevOps
-                    Engineer, I love seeking out ingenuity and simplicity,
-                    especially in places where over-engineering is common.{" "}
+                    I specialize in infrastructure automation, container orchestration, and
+                    CI/CD pipeline optimization using tools like Kubernetes, Terraform, AWS,
+                    and Ansible. My expertise spans cloud architecture, site reliability
+                    engineering, and implementing DevOps best practices that reduce deployment
+                    times and improve system reliability.
+                  </p>
+                  <p className="About__decription Page__description">
+                    As an AWS Community Builder and HashiCorp Ambassador, I actively contribute
+                    to the DevOps community through knowledge sharing and mentoring. I'm passionate
+                    about simplifying complex systems and eliminating over-engineering to deliver
+                    practical, maintainable solutions.{" "}
                   </p>{" "}
                 </div>{" "}
               </div>{" "}
