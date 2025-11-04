@@ -21,16 +21,26 @@ class Index extends React.Component {
               <div className="col-xs-12 col-lg-5 text-center">
                 <h1 className="Header-Home__title">Yusuf Adeyemo</h1>
                 <h2 className="Header-Home__subtitle">
-                  Devops Engineer | Site Reliability Engineer
+                  DevOps Engineer | Site Reliability Engineer
                 </h2>
                 <Social />
                 <Info />
-                <AwesomeButton
-                  className="Header-Home__btn-about"
-                  href="/about"
-                >
-                  ABOUT ME
-                </AwesomeButton>
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '34px', flexWrap: 'wrap' }}>
+                  <AwesomeButton
+                    className="Header-Home__btn"
+                    href="/about"
+                  >
+                    ABOUT ME
+                  </AwesomeButton>
+                  <AwesomeButton
+                    className="Header-Home__btn"
+                    href="https://blog.yusadolat.me"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MY BLOG
+                  </AwesomeButton>
+                </div>
               </div>
               <div className="col-xs-12 col-lg-7">
                 <Rotational avatar={data.avatar} />
