@@ -2,7 +2,7 @@
   "name": "yusadolat.me",
   "description": "This is my personal website. Yusuf Adeyemo",
   "version": "1.0.0",
-  "author": "Yusuf Adeyemo <yusadolat@gmail.com>",
+  "author": "Yusuf Adeyemo <yusuf@yusadolat.me>",
   "dependencies": {
     "@webcomponents/custom-elements": "^1.5.1",
     "ast-get-object": "^1.4.1",

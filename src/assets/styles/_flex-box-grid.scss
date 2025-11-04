@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:meta";
+
 // Flexbox Mixins
 // http://philipwalton.github.io/solved-by-flexbox/
 // https://github.com/philipwalton/solved-by-flexbox
@@ -106,8 +110,8 @@
 
   // Box-Flex only supports a flex-grow value so let's grab the
   // first item in the list and just return that.
-  @if type-of($fg) == 'list' {
-    $fg-boxflex: nth($fg, 1);
+  @if meta.type-of($fg) == 'list' {
+    $fg-boxflex: list.nth($fg, 1);
   }
 
   -webkit-box-flex: $fg-boxflex;
@@ -272,8 +276,8 @@ $name: xs;
 @for $i from 1 through $flexboxgrid-grid-columns {
   .col-#{$name}-#{$i} {
     @include flexboxgrid-sass-col-common;
-    @include flex-basis(100% / $flexboxgrid-grid-columns * $i);
-    max-width: 100% / $flexboxgrid-grid-columns * $i;
+    @include flex-basis(math.div(100%, $flexboxgrid-grid-columns) * $i);
+    max-width: math.div(100%, $flexboxgrid-grid-columns) * $i;
   }
 }
 @for $i from 0 through $flexboxgrid-grid-columns {
@@ -282,7 +286,7 @@ $name: xs;
     @if $i == 0 {
       margin-left: 0;
     } @else {
-      margin-left: 100% / $flexboxgrid-grid-columns * $i;
+      margin-left: math.div(100%, $flexboxgrid-grid-columns) * $i;
     }
   }
 }
@@ -336,8 +340,8 @@ $name: xs;
 
 
 @each $breakpoint in $flexboxgrid-breakpoints {
-  $name: nth($breakpoint, 1);
-  $size: nth($breakpoint, 2); 
+  $name: list.nth($breakpoint, 1);
+  $size: list.nth($breakpoint, 2); 
   @media only screen and (min-width: $size) {
     .container {
       width: 100%;
@@ -350,8 +354,8 @@ $name: xs;
     @for $i from 1 through $flexboxgrid-grid-columns {
       .col-#{$name}-#{$i} {
         @include flexboxgrid-sass-col-common;
-        @include flex-basis(100% / $flexboxgrid-grid-columns * $i);
-        max-width: 100% / $flexboxgrid-grid-columns * $i;
+        @include flex-basis(math.div(100%, $flexboxgrid-grid-columns) * $i);
+        max-width: math.div(100%, $flexboxgrid-grid-columns) * $i;
       }
     }
     @for $i from 0 through $flexboxgrid-grid-columns {
@@ -360,7 +364,7 @@ $name: xs;
         @if $i == 0 {
           margin-left: 0;
         } @else {
-          margin-left: 100% / $flexboxgrid-grid-columns * $i;
+          margin-left: math.div(100%, $flexboxgrid-grid-columns) * $i;
         }
       }
     }

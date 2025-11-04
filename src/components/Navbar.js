@@ -90,14 +90,24 @@ class Navbar extends React.Component {
 							</li>
 							<li className='Navbar__item'>
 								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) }}
-									className={`Navbar__link ${ this.props.activePage === 'Blog' ? 'active' : ''}`} to="/blog">
+									className={`Navbar__link ${ this.props.activePage === 'Certifications' ? 'active' : ''}`} to="/certifications">
 									<svg className="icon-item" version="1.1" width={36} height={36} viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-									  <polygon points="9.6 22.88 9.6 10.6 24.4 10.6 25.98 9 8 9 8 22.88 9.6 22.88" />
-									  <path d="M6,7H30V23h2V6.5A1.5,1.5,0,0,0,30.5,5H5.5A1.5,1.5,0,0,0,4,6.5V23H6Z"/>
-									  <path d="M1,25v3.4A2.6,2.6,0,0,0,3.6,31H32.34a2.6,2.6,0,0,0,2.6-2.6V25Zm32,3.4a.6.6,0,0,1-.6.6H3.56a.6.6,0,0,1-.6-.6V26.53h9.95a1.64,1.64,0,0,0,1.5,1h7.13a1.64,1.64,0,0,0,1.5-1H33Z" />
+									  <path d="M32,6H4A2,2,0,0,0,2,8V28a2,2,0,0,0,2,2H19l.57-.7.93-1.14L20.41,28H4V8H32v9.6l2,2.4V8A2,2,0,0,0,32,6Z"/>
+									  <path d="M18,19.18l-4.9-3.14A2,2,0,0,0,10,17.62V23a2,2,0,0,0,1.76,2l6.94,1A2,2,0,0,0,21,24V17.62a2,2,0,0,0-3.1-1.66ZM19,24l-7-1V17.62L16.93,20.8a1,1,0,0,0,1.07.08,1,1,0,0,0,.53-.88Z"/>
+									  <path d="M26.87,16.29a20.37,20.37,0,0,1,1.65-1.4,2,2,0,0,0-.1-3.2l-4.88-2.94a2,2,0,0,0-2.1,0l-4.88,2.94a2,2,0,0,0-.1,3.2A20.37,20.37,0,0,1,18.11,16l.1.07V17a1,1,0,0,0,2,0v-.9l.1-.07C21,15.47,24,13.44,26.87,16.29ZM21,10.2l4.88,2.94-4.88,2.94L16.12,13.14Z"/>
 									  <rect x={0} y={0} width={36} height={36} fillOpacity={0} />
 									</svg>
-									Blog
+									Certifications
+								</Link>
+							</li>
+							<li className='Navbar__item'>
+								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) }}
+									className={`Navbar__link ${ this.props.activePage === 'Tech Talks' ? 'active' : ''}`} to="/tech-talks">
+									<svg className="icon-item" version="1.1" width={36} height={36} viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+									  <path d="M29.55,19.29,20,15.47V5a1,1,0,0,0-2,0V15.47l-9.55,3.82a1,1,0,0,0-.58.92v9a1,1,0,0,0,1,1H28.13a1,1,0,0,0,1-1v-9A1,1,0,0,0,29.55,19.29ZM27.13,28.18H9.87V20.69l8.58-3.43v2.56a1,1,0,0,0,2,0V17.26l8.58,3.43Z"/>
+									  <rect x={0} y={0} width={36} height={36} fillOpacity={0} />
+									</svg>
+									Tech Talks
 								</Link>
 							</li>
 							<li className='Navbar__item'>

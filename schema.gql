@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-12-31T07:18:48.193Z ###
+### Type definitions saved at 2025-11-04T10:52:34.403Z ###
 
 enum RemoteFileFit {
   COVER
@@ -367,6 +367,13 @@ type MarkdownRemark implements Node @childOf(mimeTypes: ["text/markdown", "text/
 }
 
 type MarkdownRemarkFrontmatter {
+  location: String
+  event: String
+  audience: String
+  type: String
+  duration: String
+  slides: String
+  video: String
   title: String
   model: String
   description: String

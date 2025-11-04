@@ -52,31 +52,24 @@ const groups = [
       },
       {
         name: "Golang",
-        icon: "cplusplus-original.svg",
+        icon: "go-original.svg",
         type: type[1],
         about:
-          "Has imperative, object-oriented and generic programming features, while also providing the facilities for low level memory manipulation"
+          "A statically typed, compiled programming language designed for building simple, reliable, and efficient software"
       },
       {
-        name: "PHP",
-        icon: "php-original.svg",
+        name: "Bash",
+        icon: "bash-original.svg",
         background: "white",
         type: type[1],
         about:
-          "A popular general-purpose scripting language that is especially suited to web development"
+          "Unix shell and command language for scripting and automation"
       }
     ]
   },
   {
-    title: "Frontend",
+    title: "Application Development",
     items: [
-      {
-        name: "Vue",
-        icon: "vue-svg-logo.svg",
-        background: "#1c1c1c",
-        type: type[3],
-        about: "A progressive framework for building user interfaces"
-      },
       {
         name: "React",
         icon: "react-original.svg",
@@ -85,11 +78,11 @@ const groups = [
         about: "A JavaScript library for building user interfaces"
       },
       {
-        name: "Redux",
-        icon: "redux.svg",
-        background: "#1c1c1c",
-        type: type[3],
-        about: "Predictable state container for JavaScript apps"
+        name: "Next.js",
+        icon: "next.jslogo.svg",
+        background: "white",
+        type: type[8],
+        about: "A framework for server-rendered React applications"
       },
       {
         name: "Gatsby",
@@ -97,38 +90,6 @@ const groups = [
         background: "white",
         type: type[11],
         about: "A Static Site Generator for React"
-      },
-      {
-        name: "Next.js",
-        icon: "next.jslogo.svg",
-        background: "white",
-        type: type[8],
-        about: "A small framework for server-rendered universal JavaScript apps"
-      },
-      
-      {
-        name: "Wordpress",
-        icon: "wordpress-plain.svg",
-        background: "white",
-        type: type[23],
-        about:
-          "A semantic personal publishing platform with a focus on aesthetics, web standards, and usability"
-      },
-
-      {
-        name: "Mocha",
-        icon: "mocha-plain.svg",
-        background: "white",
-        type: type[20],
-        about:
-          "Simple, flexible, fun javascript test framework for node.js & the browser"
-      },
-      {
-        name: "Jest",
-        icon: "jest.png",
-        background: "white",
-        type: type[20],
-        about: "Painless JavaScript Unit Testing"
       }
     ]
   },
@@ -175,12 +136,40 @@ const groups = [
         type: type[24],
         background: "white",
         about: "A data query language and runtime"
+      },
+      {
+        name: "Redis",
+        icon: "redis-original.svg",
+        type: "Cache & Message Broker",
+        about: "In-memory data structure store, used as cache, message broker, and database"
+      },
+      {
+        name: "Kafka",
+        icon: "apachekafka-original.svg",
+        background: "white",
+        type: "Message Queue",
+        about: "Distributed event streaming platform for high-performance data pipelines and streaming analytics"
+      },
+      {
+        name: "RabbitMQ",
+        icon: "rabbitmq.svg",
+        background: "white",
+        type: "Message Queue",
+        about: "Open source message broker that supports multiple messaging protocols"
       }
     ]
   },
   {
-    title: "DevOps",
+    title: "DevOps & Cloud",
     items: [
+      {
+        name: "Kubernetes",
+        icon: "kubernetes-plain.svg",
+        background: "white",
+        type: "Container Orchestration",
+        about:
+          "Production-Grade Container Orchestration - automated container deployment, scaling, and management"
+      },
       {
         name: "Docker",
         icon: "docker-original-wordmark.svg",
@@ -190,17 +179,41 @@ const groups = [
           "An open source project to pack, ship and run any application as a lightweight container"
       },
       {
+        name: "Terraform",
+        icon: "terraform-original.svg",
+        background: "white",
+        type: "Infrastructure as Code",
+        about:
+          "Infrastructure as Code tool for building, changing, and versioning infrastructure safely and efficiently"
+      },
+      {
+        name: "Ansible",
+        icon: "ansible-original.svg",
+        background: "white",
+        type: "Configuration Management",
+        about:
+          "Simple, agentless IT automation that anyone can use for app deployment, configuration management, and orchestration"
+      },
+      {
         name: "AWS",
         icon: "amazonwebservices-original-wordmark.svg",
         background: "white",
-        type: type[16]
+        type: type[16],
+        about: "Amazon Web Services - comprehensive cloud computing platform"
       },
       {
-        name: "Heroku",
-        icon: "heroku-plain.png",
-        type: type[7],
-        about:
-          "Build, deliver, monitor and scale web apps and APIs with a trail blazing developer experience."
+        name: "Google Cloud",
+        icon: "googlecloud-original.svg",
+        background: "white",
+        type: type[16],
+        about: "Google Cloud Platform - suite of cloud computing services"
+      },
+      {
+        name: "Azure",
+        icon: "azure-original.svg",
+        background: "white",
+        type: type[16],
+        about: "Microsoft Azure - cloud computing service for building, testing, deploying, and managing applications"
       },
       {
         name: "Git",
@@ -210,19 +223,26 @@ const groups = [
         about: "Fast, scalable, distributed revision control system"
       },
       {
-        name: "Firebase",
-        icon: "firebase.png",
-        background: "#039be6",
-        type: type[9],
-        about: "The Realtime App Platform"
+        name: "GitHub Actions",
+        icon: "github-original.svg",
+        background: "white",
+        type: type[17],
+        about: "Automate, customize, and execute software development workflows in GitHub"
       },
       {
-        name: "Nginx",
-        icon: "nginx-original.svg",
-        background: "#333",
-        type: type[2]
+        name: "GitLab CI",
+        icon: "gitlab-original.svg",
+        background: "white",
+        type: type[17],
+        about: "Built-in continuous integration, delivery, and deployment"
       },
-
+      {
+        name: "Jenkins",
+        icon: "jenkins-original.svg",
+        background: "white",
+        type: type[17],
+        about: "Leading open source automation server for building, deploying and automating projects"
+      },
       {
         name: "Travis CI",
         icon: "travisci.png",
@@ -236,49 +256,115 @@ const groups = [
         background: "white",
         type: type[17],
         about:
-          "CircleCI’s continuous integration and delivery platform helps software teams rapidly release code with confidence."
+          "CircleCI's continuous integration and delivery platform helps software teams rapidly release code with confidence"
+      },
+      {
+        name: "ArgoCD",
+        icon: "argocd.png",
+        background: "white",
+        type: "GitOps",
+        about: "Declarative GitOps continuous delivery tool for Kubernetes"
+      },
+      {
+        name: "Nginx",
+        icon: "nginx-original.svg",
+        background: "#333",
+        type: type[2],
+        about: "High-performance HTTP server and reverse proxy"
       }
-      //{ name: 'Github', icon: 'github-original.svg', background: 'white', type: type[12], about: "Powerful collaboration, review, and code management for open source and private development projects." },
     ]
   },
   {
-    title: "Utilities",
+    title: "Monitoring & Observability",
     items: [
       {
-        name: "Webpack",
-        icon: "webpack-original.svg",
+        name: "Prometheus",
+        icon: "prometheus-original.svg",
         background: "white",
-        type: type[18],
-        about: "A bundler for javascript and friends."
+        type: "Monitoring",
+        about: "Open-source systems monitoring and alerting toolkit"
+      },
+      {
+        name: "Grafana",
+        icon: "grafana-original.svg",
+        background: "white",
+        type: "Visualization",
+        about: "Open source analytics and interactive visualization web application"
+      },
+      {
+        name: "Datadog",
+        icon: "datadog.png",
+        background: "white",
+        type: "Monitoring",
+        about: "Monitoring and analytics platform for cloud-scale applications"
+      },
+      {
+        name: "ELK Stack",
+        icon: "elasticsearch.svg",
+        background: "white",
+        type: "Logging",
+        about: "Elasticsearch, Logstash, and Kibana for search, analysis, and visualization"
+      },
+      {
+        name: "New Relic",
+        icon: "newrelic.png",
+        background: "white",
+        type: "APM",
+        about: "Application Performance Monitoring and Observability platform"
+      }
+    ]
+  },
+  {
+    title: "Infrastructure & Tools",
+    items: [
+      {
+        name: "Helm",
+        icon: "helm.svg",
+        background: "white",
+        type: "Package Manager",
+        about: "The package manager for Kubernetes - helps define, install, and upgrade Kubernetes applications"
+      },
+      {
+        name: "Vault",
+        icon: "vault.png",
+        background: "white",
+        type: "Secrets Management",
+        about: "HashiCorp Vault - secure, store and tightly control access to tokens, passwords, certificates, and encryption keys"
       },
       {
         name: "Linux",
         icon: "linux-original.svg",
-        type: type[6]
+        type: type[6],
+        about: "Open source Unix-like operating system - foundation for modern infrastructure"
       },
       {
-        name: "Slack",
-        icon: "slack-original.svg",
+        name: "Ubuntu",
+        icon: "ubuntu-plain.svg",
         background: "white",
-        type: type[22],
-        about: "Slack brings all your communication together in one place"
-      },
-      {
-        name: "Trello",
-        icon: "trello.png",
-        background: "#007fc9",
-        type: type[21],
-        about: "Your entire project, in a single glance."
+        type: type[6],
+        about: "Popular Linux distribution for cloud and server workloads"
       },
       {
         name: "Visual Studio Code",
         icon: "vscode.png",
         background: "#474747",
         type: type[15],
-        about: "A sophisticated text editor for code, markup and prose."
+        about: "Modern source code editor with built-in support for debugging, Git control, and extensions"
+      },
+      {
+        name: "Slack",
+        icon: "slack-original.svg",
+        background: "white",
+        type: type[22],
+        about: "Team collaboration and communication platform"
+      },
+      {
+        name: "Jira",
+        icon: "jira-original.svg",
+        background: "white",
+        type: type[21],
+        about: "Issue tracking and project management tool for agile teams"
       }
-      //{ name: 'Ubuntu', icon: 'ubuntu-plain.svg', background: 'white', type: type[6], about: "The leading OS for PC, tablet, phone and cloud" },
-      //{ name: 'Debian', icon: 'debian-plain.svg', background: 'white', type: type[6], about: "The Universal Operating System" },
     ]
   }
 ];
