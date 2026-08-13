@@ -1,3 +1,5 @@
+
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2795d1cf-4f0b-4200-8b21-77990c83d562/deploy-status)](https://app.netlify.com/sites/yusadolat/deploys)
 
 # Yusuf Adeyemo Website [Visit live website](https://yusadolat.netlify.com)
@@ -20,7 +22,7 @@ npm i
 
 And run:
 ```sh
-gatsby develop
+npm run develop
 ```
 ----
 If you get an error of `pnglib`, execute:
