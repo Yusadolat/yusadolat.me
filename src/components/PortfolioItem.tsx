@@ -91,7 +91,10 @@ const TagsWrapper = styled.div`
 	}
 `
 
-const Tag = styled(Link)`
+// Same as Tags.tsx: this was a Gatsby Link rendered without a `to` prop, so
+// every tag was a link to nowhere. There is no tag archive route to point at.
+// (ItemWrapper above is a real Link — it does get a `to`.)
+const Tag = styled.span`
 	padding: 2px 7px;
 	background: #F7F7F7;
 	color: #6A6A6A;

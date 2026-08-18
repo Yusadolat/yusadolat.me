@@ -12,6 +12,10 @@ admin at `/admin`. Deployed to S3 + CloudFront from `master`.
 - **Yarn 1.x** — the repo has a `yarn.lock`, so use Yarn, not npm. Mixing the
   two produces a different dependency tree than CI builds.
 
+The `src/` tree is TypeScript. Gatsby compiles `.ts`/`.tsx` through its own
+Babel pipeline and does **not** type-check during `develop` or `build`, so type
+errors will not fail a build on their own — run `yarn typecheck` (CI does).
+
 ```sh
 nvm use          # or: fnm use / asdf install
 node -v          # expect v22.x
@@ -74,7 +78,8 @@ UI will fail to load content. Content lives in `src/pages/posts`,
 | `yarn build` | Production build into `public/` (~70s warm, ~2 min cold) |
 | `yarn serve` | Serve the built `public/` on :9000 — use this to verify a build, not `yarn develop` |
 | `yarn clean` | Wipe `.cache/` and `public/` |
-| `yarn format` | Prettier over `src/**/*.js` |
+| `yarn typecheck` | `tsc --noEmit` over the whole tree. Gatsby's build does not do this for you |
+| `yarn format` | Prettier over `src/**/*.{ts,tsx}` |
 | `yarn deploy` | Sync `public/` to S3 and invalidate CloudFront (needs AWS creds) |
 
 ## Troubleshooting
@@ -102,6 +107,10 @@ fields need to exist on at least one Markdown file, or be declared in
 snapshot written by `gatsby-plugin-schema-snapshot`; delete it and rebuild if it
 drifts.
 
+**A type error that `yarn develop` did not complain about.** Expected: Gatsby
+strips types with Babel rather than compiling them. `yarn typecheck` is the
+only thing that reads `tsconfig.json`.
+
 **Sass deprecation warnings.** Silenced in `gatsby-config.js` — they come from
 `react-awesome-button`'s vendored stylesheets and from `sass-loader`'s legacy
 API, not from this repo's code.
@@ -120,9 +129,15 @@ with `npx update-browserslist-db@latest` and commit the `yarn.lock` change.
   live pipeline.
 - `buildspec.yaml` targets a different project (`s3://app-aws-portal`, a
   `./build` directory this site never produces) and is unused.
-- The build still logs ~18 `[gatsby-plugin-image] Missing image prop` warnings.
-  These are post header images: `src/templates/Post/Post.js` renders an `image`
-  prop that `blogTemplate.js` never queries, so posts whose frontmatter `style`
-  is not `default` render an empty header. Fixing it means resolving the
-  frontmatter `thumbnail` path to a `File` node (a `MarkdownRemarkFrontmatter`
-  field resolver in `gatsby-node.js`) and querying `childImageSharp` from it.
+- Post header images and portfolio thumbnails do not render. Frontmatter
+  carries paths like `/img/cafeteria.png`, but nothing serves `/img/` — the
+  files live under `src/pages/posts/img/`. `Post.tsx` also takes an `image`
+  prop that `blogTemplate.tsx` never queries. Both want the same fix: resolve
+  the frontmatter `thumbnail` to a `File` node with a
+  `MarkdownRemarkFrontmatter` field resolver in `gatsby-node.js`, then query
+  `childImageSharp` from it. The components already degrade quietly — see
+  `src/components/Image.tsx`.
+- `react-helmet` is legacy. Gatsby 5 has a built-in Head API and
+  `gatsby-plugin-react-helmet` is deprecated. Moving `SEO.tsx` onto Head would
+  drop the dependency and delete `src/components/Helmet.tsx`, which exists only
+  to work around the package's pre-React-18 types.

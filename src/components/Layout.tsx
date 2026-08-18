@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Helmet } from 'react-helmet'
+import Helmet from './Helmet'
 
 import Navbar from './Navbar'
 import Footer from './Footer'

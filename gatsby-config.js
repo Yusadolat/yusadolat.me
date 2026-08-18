@@ -38,7 +38,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: "src/utils/typography.js"
+        pathToConfigModule: "src/utils/typography.ts"
       }
     },
     {
@@ -125,7 +125,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-decap-cms`,
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`
+        modulePath: `${__dirname}/src/cms/cms.ts`
       }
     },
     {

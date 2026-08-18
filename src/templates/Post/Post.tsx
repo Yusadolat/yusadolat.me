@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Image from "../../components/Image";
 import AuthorPost from "../../components/AuthorPost";
 import AuthorPostFooter from "../../components/AuthorPostFooter";
 import Share from "../../components/Share";
@@ -32,7 +32,7 @@ const Post = ({
         </div>
         {frontmatter.style !== "default" && (
           <div className="Post__header__image">
-            <GatsbyImage image={getImage(image)} alt={frontmatter.title} />
+            <Image source={image} alt={frontmatter.title} />
           </div>
         )}
       </div>

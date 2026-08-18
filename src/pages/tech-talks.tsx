@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from "gatsby"
-import get from 'lodash/get'
 import styled from 'styled-components'
 
 import TechTalkCard from '../components/TechTalkCard'
 import Seo from '../components/SEO'
+import type { AllMarkdownQueryResult } from '../types/graphql'
 
 const TalksWrapper = styled.div`
 	padding: 0 15px;
@@ -12,10 +12,14 @@ const TalksWrapper = styled.div`
 	margin: 0 auto;
 `
 
-class TechTalks extends React.Component {
+interface TechTalksProps {
+	data: AllMarkdownQueryResult
+}
+
+class TechTalks extends React.Component<TechTalksProps> {
 	render() {
-		const talks = get(this, 'props.data.allMarkdownRemark.edges') || []
-		const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
+		const talks = this.props.data.allMarkdownRemark?.edges ?? []
+		const siteUrl = this.props.data.site?.siteMetadata?.siteUrl ?? ''
 		return (
 			<div className="TechTalks">
 				<Seo

@@ -2,7 +2,14 @@
 // the contact page, the home hero and the post byline. Previously each of
 // those components hardcoded its own copy, and they had already drifted:
 // some pointed at twitter.com/yusadolat, others at twitter.com/Yusadolat.
-export const SOCIAL_LINKS = [
+export interface SocialLink {
+  /** Matches a key in the Icon component's glyph table. */
+  name: "github" | "twitter" | "linkedin" | "instagram";
+  label: string;
+  href: string;
+}
+
+export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: "github",
     label: "GitHub",

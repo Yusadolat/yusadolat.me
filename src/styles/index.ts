@@ -1,21 +1,32 @@
-import { createGlobalStyle } from 'styled-components'
-import { css } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+import type { CSSProp, Interpolation } from 'styled-components'
 
 const sizes = {
   xl: 1170,
   lg: 992,
   md: 768,
   sm: 576,
-}
+} as const
 
-export const media = Object.keys(sizes).reduce((accumulator, label) => {  
-  accumulator[label] = (...args) => css`
+type Breakpoint = keyof typeof sizes
+
+/** Tagged template helper: media.md`...` wraps rules in a min-width query. */
+type MediaQuery = (
+  strings: TemplateStringsArray,
+  ...interpolations: Interpolation<object>[]
+) => CSSProp
+
+export const media = (Object.keys(sizes) as Breakpoint[]).reduce(
+  (accumulator, label) => {
+    accumulator[label] = (strings, ...interpolations) => css`
     @media (min-width: ${sizes[label]}px) {
-      ${css(...args)};
+      ${css(strings, ...interpolations)};
     }
   `
-  return accumulator
-}, {})
+    return accumulator
+  },
+  {} as Record<Breakpoint, MediaQuery>
+)
 
 export const defaultTheme = {
   body: {

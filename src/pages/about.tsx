@@ -1,14 +1,22 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Image from "../components/Image";
 import { graphql } from "gatsby";
-import get from "lodash/get";
 
 import Seo from "../components/SEO";
 import Stack from "../components/Stack";
+import type { ImageFileNode, SiteQueryResult } from "../types/graphql";
 
-class About extends React.Component {
+interface AboutQueryResult extends SiteQueryResult {
+  aboutImage: ImageFileNode | null;
+}
+
+interface AboutProps {
+  data: AboutQueryResult;
+}
+
+class About extends React.Component<AboutProps> {
   render() {
-    const siteUrl = get(this, "props.data.site.siteMetadata.siteUrl");
+    const siteUrl = this.props.data.site?.siteMetadata?.siteUrl ?? "";
     return (
       <div className="About">
           <Seo title="About" url={`${siteUrl}/about`} />{" "}
@@ -43,8 +51,8 @@ class About extends React.Component {
             <div className="row center-xs">
               <div className="About__img-container col-xs-12 col-md-6">
                 <div className="About__img">
-                  <GatsbyImage
-                    image={getImage(this.props.data.aboutImage)}
+                  <Image
+                    source={this.props.data.aboutImage}
                     alt="About Me"
                   />{" "}
                 </div>{" "}

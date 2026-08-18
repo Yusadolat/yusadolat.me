@@ -1,18 +1,22 @@
 import React from 'react'
 import { graphql } from "gatsby"
-import get from 'lodash/get'
 
 import Item from '../components/PortfolioItem'
 import Seo from '../components/SEO'
+import type { AllMarkdownQueryResult } from '../types/graphql'
 
-class Portfolio extends React.Component {
+interface PortfolioProps {
+	data: AllMarkdownQueryResult
+}
+
+class Portfolio extends React.Component<PortfolioProps> {
 	render() {
-		const posts = get(this, 'props.data.allMarkdownRemark.edges') || []
-		const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
+		const posts = this.props.data.allMarkdownRemark?.edges ?? []
+		const siteUrl = this.props.data.site?.siteMetadata?.siteUrl ?? ''
 		return (
 			<div className="Portfolio">
 						<Seo
-						  title="Portafolio"
+						  title="Portfolio"
 						  url={`${siteUrl}/portfolio`}
 						/>
 						<section className="HeaderPortfolio Page">

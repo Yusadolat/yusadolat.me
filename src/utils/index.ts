@@ -1,4 +1,4 @@
-const actualPage = (pathname = '') => {
+const actualPage = (pathname: string = ''): string => {
     if (!pathname) return '';
     
     while(pathname[pathname.length - 1] === '/') {
@@ -8,7 +8,7 @@ const actualPage = (pathname = '') => {
     return title
 }
 
-const isPostOrProject = (actualPage) => {	
+const isPostOrProject = (actualPage: string): boolean => {	
 	switch(actualPage) {
 		case '':
 		case 'Blog':

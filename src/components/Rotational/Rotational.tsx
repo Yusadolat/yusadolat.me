@@ -1,5 +1,6 @@
 import React from 'react'
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
+import { StaticImage } from 'gatsby-plugin-image'
+import Image from '../Image'
 
 const Rotational = props => (
   <div className="Rotational">
@@ -30,7 +31,7 @@ const Rotational = props => (
       </div>
     </div>
     <div className="Rotational__avatar-container">
-      <GatsbyImage image={getImage(props.avatar)} alt="Avatar" />
+      <Image source={props.avatar} alt="Avatar" />
     </div>
   </div>
 )

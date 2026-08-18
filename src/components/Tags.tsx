@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 
 const List = styled.ul`
 	list-style: none;
@@ -17,7 +16,10 @@ const Container = styled.div`
 	}
 `
 
-const Item = styled(Link)`
+// This was styled(Link) rendered without a `to` prop, so every tag was a Gatsby
+// Link pointing nowhere, and the <ul> held anchors rather than list items. The
+// site has no tag archive route to link to, so these are labels, not links.
+const Item = styled.li`
 	padding: 2px 7px;
 	background: #F7F7F7;
 	color: #6A6A6A;
@@ -34,12 +36,18 @@ const Item = styled(Link)`
 	}
 `
 
-export default props => (
+interface TagsProps {
+	items: string[]
+}
+
+const Tags = ({ items }: TagsProps) => (
 	<Container>
 		<List>
 			{
-				props.items.map(item => <Item>{ item }</Item>)
+				items.map(item => <Item key={item}>{ item }</Item>)
 			}
 		</List>
 	</Container>
 )
+
+export default Tags

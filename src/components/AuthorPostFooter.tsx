@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import Image from './Image'
 
 import Icon from './Icon'
 import { SOCIAL_LINKS } from '../utils/socialLinks'
@@ -8,7 +8,7 @@ import { SOCIAL_LINKS } from '../utils/socialLinks'
 const AuthorPostFooter = props => (
 	<div className='AuthorPostFooter'>
 		<div className="AuthorPostFooter__header">
-			<GatsbyImage className="AuthorPostFooter__image" image={getImage(props.avatar)} alt="Author" />
+			<Image className="AuthorPostFooter__image" source={props.avatar} alt="Author" />
 		</div>
 		<div className="AuthorPostFooter__body">
 			<p className="AuthorPostFooter__written by">{ props.make ? 'Written' : 'Written'} by</p>

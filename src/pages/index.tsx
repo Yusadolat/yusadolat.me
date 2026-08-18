@@ -1,17 +1,25 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { AwesomeButton } from "react-awesome-button";
-import get from "lodash/get";
 import Info from "../components/Info";
 // Use the Rotational component that renders icons inside items
 import Rotational from "../components/Rotational/Rotational";
 import Seo from "../components/SEO";
 import Social from "../components/Social";
+import type { ImageFileNode, SiteQueryResult } from "../types/graphql";
 
-class Index extends React.Component {
+interface HomeQueryResult extends SiteQueryResult {
+  avatar: ImageFileNode | null;
+}
+
+interface IndexProps {
+  data: HomeQueryResult
+}
+
+class Index extends React.Component<IndexProps> {
   render() {
     const { data } = this.props;
-    const siteUrl = get(this, "props.data.site.siteMetadata.siteUrl");
+    const siteUrl = this.props.data.site?.siteMetadata?.siteUrl ?? '';
     return (
       <div>
         <Seo title="" url={siteUrl} />

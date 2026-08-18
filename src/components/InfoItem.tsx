@@ -1,7 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const InfoItem = ({ title, description, postfix }) => {
+interface InfoItemProps {
+  title: string;
+  /** Rendered as HTML: GitHub returns the status emoji as markup. */
+  description: string;
+  postfix?: string;
+}
+
+const InfoItem = ({ title, description, postfix }: InfoItemProps) => {
   return (
     <Container>
       <p className="title3">{title}:</p>

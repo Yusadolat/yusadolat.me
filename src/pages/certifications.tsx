@@ -111,7 +111,12 @@ const CertLink = styled.a`
 	}
 `
 
-const Badge = styled.span`
+interface BadgeProps {
+	/** "Active" renders green; anything else renders amber. */
+	status?: string
+}
+
+const Badge = styled.span<BadgeProps>`
 	display: inline-block;
 	padding: 4px 10px;
 	background: ${props => props.status === 'Active' ? '#4caf50' : '#ff9800'};

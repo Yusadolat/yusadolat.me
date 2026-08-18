@@ -1,10 +1,29 @@
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 
+import type { GithubInfo } from "../../types/graphql";
+
+interface GithubApiResponse {
+  data?: {
+    user?: {
+      company: string;
+      status: {
+        message: string;
+        emojiHTML: string;
+        updatedAt: string;
+        indicatesLimitedAvailability: boolean;
+      } | null;
+      contributionsCollection: {
+        contributionCalendar: { totalContributions: number };
+      };
+    } | null;
+  };
+}
+
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-export const getMyGithubInfo = async () => {
+export const getMyGithubInfo = async (): Promise<GithubInfo | undefined> => {
   try {
     const res = await fetch("https://api.github.com/graphql", {
       method: "POST",
@@ -32,17 +51,12 @@ export const getMyGithubInfo = async () => {
         }`
       })
     });
-    const {
-      data: {
-        user: {
-          company,
-          status,
-          contributionsCollection: {
-            contributionCalendar: { totalContributions }
-          }
-        }
-      }
-    } = await res.json();
+    const payload = (await res.json()) as GithubApiResponse;
+    const user = payload.data?.user;
+    if (!user || !user.status) return undefined;
+    const { company, status } = user;
+    const { totalContributions } =
+      user.contributionsCollection.contributionCalendar;
 
     return {
       status: `${status.emojiHTML} ${status.message}`,

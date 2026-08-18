@@ -1,7 +1,12 @@
 import { useState } from "react";
 
-export const useLocalStorage = (key, initialValue) => {
-  const [storedValue, setStoredValue] = useState(() => {
+type SetValue<T> = (value: T | ((previous: T) => T)) => void;
+
+export const useLocalStorage = <T,>(
+  key: string,
+  initialValue: T
+): [T, SetValue<T>] => {
+  const [storedValue, setStoredValue] = useState<T>(() => {
     // Gatsby renders this during SSR, where there is no window. Bail out to the
     // initial value so the server-rendered markup matches the first client
     // render, then let the client read localStorage on hydration.
@@ -17,7 +22,7 @@ export const useLocalStorage = (key, initialValue) => {
     }
   });
 
-  const setValue = value => {
+  const setValue: SetValue<T> = value => {
     try {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import Image from '../../components/Image'
 
 import Content from '../../components/Content'
 import AuthorPostFooter from '../../components/AuthorPostFooter'
@@ -23,7 +23,7 @@ export default props => {
 				{
 					props.frontmatter.style !== 'default' &&
 					<div className="Post__header__image ProjectTemplate__header__image">
-						<GatsbyImage image={getImage(props.image)} alt={props.frontmatter.title} />
+						<Image source={props.image} alt={props.frontmatter.title} />
 					</div>
 				}
 			</div>

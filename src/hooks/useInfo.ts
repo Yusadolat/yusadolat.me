@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { getMyGithubInfo } from "../utils/requests/githubInfo";
+import type { GithubInfo } from "../types/graphql";
 
-export const useInfo = () => {
-  const [info, setInfo] = useLocalStorage("info", {
+export const useInfo = (): GithubInfo => {
+  const [info, setInfo] = useLocalStorage<GithubInfo>("info", {
     status: "Helping startups deliver better software ",
     company: "Vendii",
     updatedAt: "",

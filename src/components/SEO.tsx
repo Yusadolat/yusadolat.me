@@ -1,7 +1,17 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import Helmet from './Helmet'
 
-const SEO = ({ title, description, url, isPost }) => {
+interface SeoProps {
+  title?: string
+  description?: string
+  url?: string
+  /** Switches the og:type between "article" and "website". */
+  isPost?: boolean
+  /** Accepted by some callers; the title already carries the site name. */
+  postfix?: string
+}
+
+const SEO = ({ title, description, url, isPost }: SeoProps) => {
   const siteTitle = title ? `${title} | Yusuf Adeyemo` : 'Yusuf Adeyemo'
   const metaDescription = description || 'Senior DevOps Engineer / Site Reliability Engineer'
   const metaUrl = url || 'https://yusadolat.me'

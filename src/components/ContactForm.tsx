@@ -12,15 +12,22 @@ const Container = styled.div`
   padding: 20px 10px;
 `;
 
-class ContactForm extends React.Component {
-  state = {
+interface ContactFormState {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+class ContactForm extends React.Component<{}, ContactFormState> {
+  state: ContactFormState = {
     name: "",
     email: "",
     subject: "",
     message: ""
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     fetch("/", {
       method: "POST",
       headers: {
@@ -33,14 +40,20 @@ class ContactForm extends React.Component {
     })
       .then(async () => { // Made async to use await for dynamic import
         const Swal = (await import("sweetalert2")).default;
-        Swal({
-          type: "success",
+        // sweetalert2 v11 dropped the callable default export and renamed these
+        // options: `type` became `icon`, `onClose` became `didClose`, and the
+        // *ButtonClass options moved under `customClass`. The v9 call shape
+        // that was here would have thrown on submit.
+        await Swal.fire({
+          icon: "success",
           title: "Message sent",
           text:
             "Thank you for sending me your message, I will reply as soon as possible.",
-          confirmButtonClass: "Btn",
-          cancelButtonClass: "Btn",
-          onClose: () => {
+          customClass: {
+            confirmButton: "Btn",
+            cancelButton: "Btn"
+          },
+          didClose: () => {
             this.setState({
               name: "",
               email: "",
@@ -50,14 +63,16 @@ class ContactForm extends React.Component {
           }
         });
       })
-      .catch(error => alert("Error sending message. Retry."));
+      .catch(() => alert("Error sending message. Retry."));
     e.preventDefault();
   };
 
-  handleChange = e =>
+  handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) =>
     this.setState({
       [e.target.name]: e.target.value
-    });
+    } as Pick<ContactFormState, keyof ContactFormState>);
 
   render() {
     const { name, email, subject, message } = this.state;
@@ -122,7 +137,7 @@ class ContactForm extends React.Component {
                 value={message}
                 className="ContactForm__input"
                 placeholder="Enter your message here"
-                rows="6"
+                rows={6}
                 required
                 onChange={this.handleChange}
               ></textarea>

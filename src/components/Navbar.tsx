@@ -5,8 +5,18 @@ import { Link } from 'gatsby'
 import Logo from '../assets/images/logo_letter.png'
 import { isPostOrProject } from '../utils'
 
-class Navbar extends React.Component {
-	state = {
+interface NavbarProps {
+	/** Page name derived from the pathname; drives the active nav link. */
+	activePage?: string
+}
+
+interface NavbarState {
+	navbarIsTop: boolean
+	menuIsOpen: boolean
+}
+
+class Navbar extends React.Component<NavbarProps, NavbarState> {
+	state: NavbarState = {
 		navbarIsTop: true,
 		menuIsOpen: false
 	}
@@ -34,7 +44,7 @@ class Navbar extends React.Component {
 		}
 	}
 
-	keyListener = event => {
+	keyListener = (event: KeyboardEvent): void => {
 		if (event.key === 'Escape') {
 			this.setState({ menuIsOpen: false })
 		}
@@ -54,17 +64,15 @@ class Navbar extends React.Component {
 		window.removeEventListener('keydown', this.keyListener)
 	}
 
-	handleToggle = event => {
-		this.setState((prevState, props) => {
-			return {
-				menuIsOpen: !prevState.menuIsOpen,
-			}
-		})
+	handleToggle = (): void => {
+		this.setState(prevState => ({
+			menuIsOpen: !prevState.menuIsOpen
+		}))
 	}
 
 	render() {
 		const { menuIsOpen }	 = this.state
-		const isPost = isPostOrProject(this.props.activePage)
+		const isPost = isPostOrProject(this.props.activePage ?? '')
 		return (
 			<nav className={
 				"Navbar " +
