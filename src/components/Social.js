@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Icon from './Icon'
+import { SOCIAL_LINKS } from '../utils/socialLinks'
+
 const SocialWrapper = styled.div`
 	text-align: center;
 `
@@ -8,66 +11,46 @@ const SocialIcon = styled.a`
 	margin: 0 5px !important;
 	background: #bbbbbb;
 	border-radius: 50%;
-	width: 38px;
-	height: 38px;
-	padding: 8px;
+	width: 44px;
+	height: 44px;
+	padding: 12px;
+	color: #ffffff;
 	transition: .3s;
-	display: inline-block;
-	img {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	svg {
 		transition: .3s;
-		width: 100%;
-		margin: 0;
+		display: block;
 	}
 	&:hover {
 		transform: scale(1.15);
 	}
 
-	&:hover img {
+	&:hover svg {
 		transform: scale(.9);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+		&:hover,
+		&:hover svg {
+			transform: none;
+		}
 	}
 `
 const Social = props => (
 	<SocialWrapper>
-		<SocialIcon
-			className="github--hover"
-			href="https://www.github.com/yusadolat"
-			title="Github - Yusuf Adeyemo"
-			target="_blank">
-			<img
-				alt="img"
-				src="https://icongr.am/fontawesome/github.svg?color=ffffff"
-				title="Github - Yusuf Adeyemo"/>
-		</SocialIcon>
-		<SocialIcon
-			className="twitter--hover"
-			href="https://twitter.com/yusadolat"
-			title="Twitter - Yusuf Adeyemo"
-			target="_blank">
-			<img
-				alt="img"
-				src="https://icongr.am/fontawesome/twitter.svg?color=ffffff"
-				title="Twitter - Yusuf Adeyemo"/>
-		</SocialIcon>
-		<SocialIcon
-			className="linkedin--hover"
-			href="https://www.linkedin.com/in/yusadolat/"
-			title="Linkedin - Yusuf Adeyemo"
-			target="_blank">
-			<img
-				alt="img"
-				src="https://icongr.am/fontawesome/linkedin.svg?color=ffffff"
-				title="Linkedin - Yusuf Adeyemo"/>
-		</SocialIcon>
-		<SocialIcon
-			className="instagram--hover"
-			href="https://www.instagram.com/yusadolat/"
-			title="Instagram - Yusuf Adeyemo"
-			target="_blank">
-			<img
-				alt="img"
-				src="https://icongr.am/fontawesome/instagram.svg?color=ffffff"
-				title="Instagram - Yusuf Adeyemo"/>
-		</SocialIcon>
+		{SOCIAL_LINKS.map(({ name, label, href }) => (
+			<SocialIcon
+				key={name}
+				className={`${name}--hover`}
+				href={href}
+				target="_blank"
+				rel="noopener noreferrer">
+				<Icon name={name} label={`${label} — Yusuf Adeyemo`} />
+			</SocialIcon>
+		))}
 	</SocialWrapper>
 )
 

@@ -27,7 +27,7 @@ class TechTalks extends React.Component {
 					<div className="container">
 						<div className="row center-xs">
 							<div className="HeaderTechTalks__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
-								<h2 className="HeaderTechTalks__title Page__title">Tech Talks & Speaking</h2>
+								<h1 className="HeaderTechTalks__title Page__title">Tech Talks & Speaking</h1>
 								<p className="HeaderTechTalks__description Page__description">
 									Speaking engagements, workshops, and presentations on product management,
 									technical marketing, and developer advocacy.

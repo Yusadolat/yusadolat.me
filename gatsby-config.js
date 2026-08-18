@@ -9,6 +9,12 @@ module.exports = {
   plugins: [
     "gatsby-plugin-schema-snapshot",
     "gatsby-plugin-react-helmet",
+    // 17 files style themselves with styled-components, but this plugin was
+    // never registered, so none of that CSS was server-rendered: the built HTML
+    // carried the generated class names with no rules behind them, and
+    // styled-components then treated the page as already hydrated and skipped
+    // re-injecting. Registering it restores SSR extraction.
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-sass",

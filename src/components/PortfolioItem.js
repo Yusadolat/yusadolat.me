@@ -167,7 +167,7 @@ const PortfolioItem = props => (
         </svg>
         {props.data.tags.map((value, index) => {
           return (
-            <Tag key={index} title={`Ver todos los proyectos en ${value}`}>
+            <Tag key={index} title={`See all projects tagged ${value}`}>
               {" " + value}
             </Tag>
           );
@@ -176,6 +176,7 @@ const PortfolioItem = props => (
       <ShortcutIcons>
         <a
           title="See code on Repository"
+          aria-label={`See the ${props.data.title} code on GitHub`}
           href={props.data.repository}
           target="_blank"
           rel="noopener noreferrer"
@@ -196,7 +197,8 @@ const PortfolioItem = props => (
         </a>
         {props.data.website && (
           <a
-            title="Ver sitio"
+            title="Visit site"
+            aria-label={`Visit the ${props.data.title} site`}
             href={props.data.website}
             target="_blank"
             rel="noopener noreferrer"

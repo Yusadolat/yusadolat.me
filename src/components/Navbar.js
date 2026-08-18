@@ -21,22 +21,37 @@ class Navbar extends React.Component {
 		menuIsOpen: false
 	}
 
-	componentDidMount() {
-		const scrollListener = () => {
-			let scrollPosition = document.documentElement.scrollTop
-			this.setState({
-				navbarIsTop: scrollPosition <= 5
-			})
-		}
-		window.addEventListener('scroll', scrollListener)
-		window.addEventListener('resize', () => {
-			let width = window.innerWidth;
-			if(width >= 768) {
-				this.setState({
-					menuIsOpen: false
-				})
-			}
+	scrollListener = () => {
+		const scrollPosition = document.documentElement.scrollTop
+		this.setState({
+			navbarIsTop: scrollPosition <= 5
 		})
+	}
+
+	resizeListener = () => {
+		if (window.innerWidth >= 768) {
+			this.setState({ menuIsOpen: false })
+		}
+	}
+
+	keyListener = event => {
+		if (event.key === 'Escape') {
+			this.setState({ menuIsOpen: false })
+		}
+	}
+
+	componentDidMount() {
+		window.addEventListener('scroll', this.scrollListener)
+		window.addEventListener('resize', this.resizeListener)
+		window.addEventListener('keydown', this.keyListener)
+	}
+
+	// Without this the listeners outlive the component and keep calling
+	// setState on an unmounted Navbar during client-side navigation.
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.scrollListener)
+		window.removeEventListener('resize', this.resizeListener)
+		window.removeEventListener('keydown', this.keyListener)
 	}
 
 	handleToggle = event => {
@@ -59,10 +74,6 @@ class Navbar extends React.Component {
 				(this.state.navbarIsTop ? '' : 'noTop')
 			}
 				id="Navbar">
-				<div
-					onClick={ (e) => { this.setState({ menuIsOpen: false }) }}
-					className={`Navbar__shadow ${menuIsOpen ? 'open' : ''}`}>
-				</div>
 				<div className="container">
 					<Link className="Navbar__titlewrap"
 						onClick={ (e) => { this.setState({menuIsOpen: false}) } }
@@ -73,10 +84,14 @@ class Navbar extends React.Component {
 					<div className="Navbar__navwrap">
 						<button onClick={ this.handleToggle }
 							id="navbarToggler"
+							type="button"
+							aria-label={menuIsOpen ? 'Close menu' : 'Open menu'}
+							aria-expanded={menuIsOpen}
+							aria-controls="navbarNav"
 							className={`Navbar__toggler ${menuIsOpen ? 'open' : ''}`}>
-							<span className="Navbar__toggler__burger-menu"></span>
+							<span className="Navbar__toggler__burger-menu" aria-hidden="true"></span>
 						</button>
-						<ul className={ `Navbar__nav ${ menuIsOpen ? 'open' : '' }` }>
+						<ul id="navbarNav" className={ `Navbar__nav ${ menuIsOpen ? 'open' : '' }` }>
 							<li className='Navbar__item'>
 								<Link onClick={ (e) => { this.setState({menuIsOpen: false}) } }
 									className={`Navbar__link ${ this.props.activePage === '' ? 'active' : ''}`}

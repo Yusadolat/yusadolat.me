@@ -16,10 +16,10 @@ class Contact extends React.Component {
             <div className="container">
               <div className="row center-xs">
                 <div className="HeaderContact__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
-                  <h2 className="HeaderContact__title Page__title">
+                  <h1 className="HeaderContact__title Page__title">
                     {" "}
                     Contact{" "}
-                  </h2>
+                  </h1>
                   <p className="HeaderContact__description Page__description">
                     {" "}
                     First of all, thanks for visiting my blog.If you have any

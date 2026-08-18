@@ -15,6 +15,7 @@ export default props => (
         className="ToolbarButton"
         size="small"
         target="_blank"
+        rel="noopener noreferrer"
         type="linkedin"
       >
         <svg
@@ -38,6 +39,7 @@ export default props => (
         href={props.repository}
         className="ToolbarButton"
         target="_blank"
+        rel="noopener noreferrer"
         size="small"
         type="github"
       >

@@ -189,7 +189,7 @@ class Certifications extends React.Component {
 					<div className="container">
 						<div className="row center-xs">
 							<div className="HeaderCertifications__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
-								<h2 className="HeaderCertifications__title Page__title">Certifications & Awards</h2>
+								<h1 className="HeaderCertifications__title Page__title">Certifications & Awards</h1>
 								<p className="HeaderCertifications__description Page__description">
 									Professional certifications, industry awards, and community recognition
 									demonstrating expertise in cloud infrastructure, DevOps practices, and site reliability engineering.

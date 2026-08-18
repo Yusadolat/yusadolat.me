@@ -41,6 +41,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  // __orbit is a 300px square that rotates, so its bounding box sweeps out the
+  // diagonal: 300 * sqrt(2) = 424px. On a 390px phone that pushed the document
+  // 32px wider than the viewport and gave the whole homepage a horizontal
+  // scrollbar. The icons themselves only span ~350px, so clipping the phantom
+  // corners costs nothing visible.
+  overflow: hidden;
 
   &__orbit {
     position: absolute;
@@ -129,3 +135,14 @@
     }
   }
 } 
+
+// Users who ask their OS for reduced motion should not get an endless spin.
+// The orbit keeps its layout; it just stops moving.
+@media (prefers-reduced-motion: reduce) {
+  .Rotational {
+    &__orbit,
+    &__item {
+      animation: none !important;
+    }
+  }
+}

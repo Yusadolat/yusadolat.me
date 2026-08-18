@@ -16,7 +16,7 @@ class About extends React.Component {
             <div className="container">
               <div className="row center-xs">
                 <div className="HeaderContact__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
-                  <h2 className="About__title Page__title"> About Me </h2>{" "}
+                  <h1 className="About__title Page__title"> About Me </h1>{" "}
                   <p className="About__description Page__description">
                     Hi, I'm Yusuf Adeyemo, a Senior DevOps Engineer and Cloud Infrastructure
                     Consultant with over 7 years of experience helping organizations build
