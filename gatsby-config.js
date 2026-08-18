@@ -14,7 +14,17 @@ module.exports = {
       resolve: "gatsby-plugin-sass",
       options: {
         sassOptions: {
-          precision: 6
+          precision: 6,
+          // react-awesome-button ships pre-Dart-Sass-3 stylesheets (@import,
+          // darken(), global built-ins). Nothing here we can fix, so keep the
+          // build output readable instead of drowning it in vendor warnings.
+          quietDeps: true,
+          silenceDeprecations: [
+            "import",
+            "global-builtin",
+            "color-functions",
+            "legacy-js-api"
+          ]
         },
         useResolveUrlLoader: true
       }

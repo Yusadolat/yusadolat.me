@@ -67,6 +67,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           contentComponent={HTMLContent}
           showShare={showShare}
           location={currentLocation}
+          avatar={data.avatar}
         />
       </div>
     </Layout>
@@ -77,6 +78,11 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    avatar: file(absolutePath: { regex: "/avatar.jpg/" }) {
+      childImageSharp {
+        gatsbyImageData(width: 80, quality: 90, layout: FIXED)
+      }
+    }
     site {
       siteMetadata {
         title

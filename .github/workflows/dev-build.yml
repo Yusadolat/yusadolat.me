@@ -12,16 +12,16 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version-file: '.node-version'
           cache: 'yarn'
 
       - name: Cache Yarn packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -29,7 +29,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Cache Gatsby build files
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             public

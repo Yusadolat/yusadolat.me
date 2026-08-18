@@ -43,7 +43,10 @@ class About extends React.Component {
             <div className="row center-xs">
               <div className="About__img-container col-xs-12 col-md-6">
                 <div className="About__img">
-                  <GatsbyImage image={getImage(this.props.data.aboutImage)} alt="About Me" />{" "}
+                  <GatsbyImage
+                    image={getImage(this.props.data.aboutImage)}
+                    alt="About Me"
+                  />{" "}
                 </div>{" "}
               </div>{" "}
               <div className="About__interests col-xs-12 col-md-6 text-left first-md">
@@ -91,8 +94,13 @@ export const queryAbout = graphql`
         title
       }
     }
-    aboutImage: imageSharp(fluid: { originalName: { regex: "/me.jpg/" } }) {
-      gatsbyImageData(width: 720, layout: CONSTRAINED)
+    aboutImage: file(
+      relativePath: { eq: "about-image.jpg" }
+      sourceInstanceName: { eq: "img" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(width: 720, layout: CONSTRAINED)
+      }
     }
   }
 `
