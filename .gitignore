@@ -2,15 +2,21 @@
 .cache
 node_modules
 yarn-error.log
+npm-debug.log*
 .idea
 
-# Build directory
+# Build output
 /public
-.DS_Store.
+.DS_Store
 
-# add .env.development
+# Local environment files — never commit these, they hold API tokens.
+# The *.sample files are the committed templates.
+.env
+.env.*
+!.env.*.sample
+
+# Local scratch / scripts
 config.bat
 branch_structure.json
 temp_auto_push.bat
 temp_interactive_push.bat
-.gitignore

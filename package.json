@@ -63,13 +63,18 @@
     "Yusadolat"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0 <23.0.0",
+    "yarn": ">=1.22.0"
+  },
   "scripts": {
     "build": "XDG_CONFIG_HOME=.cache/xdg gatsby build",
     "develop": "XDG_CONFIG_HOME=.cache/xdg gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "deploy": "XDG_CONFIG_HOME=.cache/xdg gatsby-plugin-s3 deploy --yes; export AWS_PAGER=\"\"; aws cloudfront create-invalidation --distribution-id E3SVLI6GPM9LG9 --paths '/*';",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "XDG_CONFIG_HOME=.cache/xdg gatsby clean"
+    "clean": "XDG_CONFIG_HOME=.cache/xdg gatsby clean",
+    "serve": "XDG_CONFIG_HOME=.cache/xdg gatsby serve"
   },
   "devDependencies": {
     "prettier": "^3.1.1",
