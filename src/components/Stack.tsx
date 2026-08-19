@@ -1,302 +1,160 @@
 import React from "react";
 
 import Group from "./Group";
+import type { StackGroup } from "../types/stack";
 
-const type = [
-  "Databases",
-  "Language",
-  "Web Server",
-  "Javascript UI Library",
-  "Cloud Hosting",
-  "CSS Pre-processor",
-  "Operating System",
-  "Platform as a Service",
-  "Framework (Full Stack)",
-  "Realtime Backend/API",
-  "Microframework (Backend)",
-  "Static Site Generator",
-  "Code Collaboration & VCS",
-  "Version Control System",
-  "Virtual Machine Platforms and containers",
-  "open-source container-orchestration system",
-  "Text Editor",
-  "Infrastructure as a service",
-  "Continuous Integration",
-  "JS Build Tool/JS Task Runner",
-  "Javascript Compiler",
-  "JS Testing Framework",
-  "Project Management",
-  "Group Chat & Notifications",
-  "CMS",
-  "Query Languages",
-  "JS MVC Framework",
-  "Cloud Content Management System"
-];
-const groups = [
+/**
+ * What this site says its author does: "infrastructure automation, container
+ * orchestration, and CI/CD pipeline optimization using tools like Kubernetes,
+ * Terraform, AWS, and Ansible" (see about.tsx), backed by an AWS Certified
+ * DevOps Engineer – Professional cert and a HashiCorp Ambassadorship.
+ *
+ * This list is kept to that. It previously carried 33 entries inherited from
+ * the template this site was forked from — Wordpress, Contentful, Mocha, Jest,
+ * Redux, Trello, Slack — which read as a front-end developer's toolkit and
+ * made up 65% of the About page's height on a phone.
+ */
+const groups: StackGroup[] = [
   {
-    title: "Languages",
+    title: "Cloud & Infrastructure",
     items: [
-      {
-        name: "Javascript",
-        icon: "javascript-original.svg",
-        background: "#f0db4f",
-        type: type[1],
-        about:
-          "Lightweight, interpreted, object-oriented language with first-class functions"
-      },
-      {
-        name: "Python",
-        icon: "python-original.svg",
-        type: type[1],
-        about:
-          "Python is a clear and powerful object-oriented programming language, comparable to Perl, Ruby, Scheme, or Java."
-      },
-      {
-        name: "Golang",
-        icon: "go-original.svg",
-        type: type[1],
-        about:
-          "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
-      }
-    ]
-  },
-  {
-    title: "Frontend",
-    items: [
-      {
-        name: "React",
-        icon: "react-original.svg",
-        background: "#1c1c1c",
-        type: type[3],
-        about: "A JavaScript library for building user interfaces"
-      },
-      {
-        name: "Redux",
-        icon: "redux.svg",
-        background: "#1c1c1c",
-        type: type[3],
-        about: "Predictable state container for JavaScript apps"
-      },
-      {
-        name: "Gatsby",
-        icon: "gatsby.png",
-        background: "white",
-        type: type[11],
-        about: "A Static Site Generator for React"
-      },
-      {
-        name: "Next.js",
-        icon: "next.jslogo.svg",
-        background: "white",
-        type: type[8],
-        about: "A small framework for server-rendered universal JavaScript apps"
-      },
-      {
-        name: "Wordpress",
-        icon: "wordpress-plain.svg",
-        background: "white",
-        type: type[23],
-        about:
-          "A semantic personal publishing platform with a focus on aesthetics, web standards, and usability"
-      },
-      {
-        name: "Contentful",
-        icon: "contentful.png",
-        background: "black",
-        type: type[26],
-        about: "Manage content once, publish it anywhere"
-      },
-      {
-        name: "Mocha",
-        icon: "mocha-plain.svg",
-        background: "white",
-        type: type[20],
-        about:
-          "Simple, flexible, fun javascript test framework for node.js & the browser"
-      },
-      {
-        name: "Jest",
-        icon: "jest.png",
-        background: "white",
-        type: type[20],
-        about: "Painless JavaScript Unit Testing"
-      }
-    ]
-  },
-  {
-    title: "Backend",
-    items: [
-      {
-        name: "Node",
-        icon: "nodejs-original.svg",
-        type: type[8],
-        about:
-          "Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications"
-      },
-      {
-        name: "Express",
-        icon: "express-original.svg",
-        background: "white",
-        type: type[10],
-        about: "Infraestructura web rápida, minimalista y flexible para Node.js"
-      },
-
-      {
-        name: "MySQL",
-        icon: "mysql-original-wordmark.svg",
-        background: "white",
-        type: type[0],
-        about: "The world's most popular open source database"
-      },
-      {
-        name: "MongoDB",
-        icon: "mongodb-original.svg",
-        background: "#40474f",
-        type: type[0],
-        about: "The database for giant ideas"
-      },
-      {
-        name: "PostgreSQL",
-        icon: "postgresql-original.svg",
-        type: type[0],
-        about: "A powerful, open source object-relational database system"
-      },
-      {
-        name: "GraphQL",
-        icon: "graphql.svg",
-        type: type[24],
-        background: "white",
-        about: "A data query language and runtime"
-      }
-    ]
-  },
-  {
-    title: "DevOps",
-    items: [
-      {
-        name: "Docker",
-        icon: "docker-original-wordmark.svg",
-        background: "white",
-        type: type[14],
-        about:
-          "An open source project to pack, ship and run any application as a lightweight container"
-      },
-      {
-        name: "Kubernetes",
-        icon: "kubernetes_logo.svg",
-        background: "white",
-        type: type[15],
-        about:
-          "An open-source container-orchestration system for automating computer application deployment, scaling, and management."
-      },
       {
         name: "AWS",
         icon: "amazonwebservices-original-wordmark.svg",
         background: "white",
-        type: type[16]
-      },
-      {
-        name: "Heroku",
-        icon: "heroku-plain.png",
-        type: type[7],
+        type: "Cloud platform",
         about:
-          "Build, deliver, monitor and scale web apps and APIs with a trail blazing developer experience."
+          "Primary cloud platform. AWS Certified DevOps Engineer – Professional."
       },
       {
-        name: "Git",
-        icon: "git-plain.svg",
+        name: "Terraform",
+        icon: "terraform.svg",
         background: "white",
-        type: type[13],
-        about: "Fast, scalable, distributed revision control system"
+        type: "Infrastructure as code",
+        about: "Declarative provisioning across cloud providers."
       },
       {
-        name: "Firebase",
-        icon: "firebase.png",
-        background: "#039be6",
-        type: type[9],
-        about: "The Realtime App Platform"
+        name: "Kubernetes",
+        icon: "kubernetes.svg",
+        background: "white",
+        type: "Container orchestration",
+        about:
+          "Open-source system for automating deployment, scaling and management of containerised applications."
+      },
+      {
+        name: "Docker",
+        icon: "docker-original-wordmark.svg",
+        background: "white",
+        type: "Containers",
+        about: "Packaging applications and their dependencies into containers."
+      },
+      {
+        name: "Linux",
+        icon: "linux-original.svg",
+        type: "Operating system",
+        about: "The platform nearly all of this runs on."
       },
       {
         name: "Nginx",
         icon: "nginx-original.svg",
         background: "#333",
-        type: type[2]
-      },
-      {
-        name: "Apache",
-        icon: "apache-original-wordmark.svg",
-        background: "white",
-        type: type[2]
-      },
-      {
-        name: "Travis CI",
-        icon: "travisci.png",
-        type: type[17],
-        about:
-          "A hosted continuous integration service for open source and private projects"
-      },
-      {
-        name: "Circle CI",
-        icon: "circleci.svg",
-        background: "white",
-        type: type[17],
-        about:
-          "CircleCI’s continuous integration and delivery platform helps software teams rapidly release code with confidence."
+        type: "Web server / reverse proxy",
+        about: "Serving, proxying and load balancing HTTP traffic."
       }
     ]
   },
   {
-    title: "Utilities",
+    title: "CI/CD & Automation",
     items: [
       {
-        name: "Webpack",
-        icon: "webpack-original.svg",
+        name: "Ansible",
+        icon: "ansible.svg",
         background: "white",
-        type: type[18],
-        about: "A bundler for javascript and friends."
+        type: "Configuration management",
+        about: "Agentless configuration management and orchestration."
       },
-      { name: "Linux", icon: "linux-original.svg", type: type[6] },
       {
-        name: "Slack",
-        icon: "slack-original.svg",
+        name: "GitHub Actions",
+        icon: "githubactions.svg",
         background: "white",
-        type: type[22],
-        about: "Slack brings all your communication together in one place"
+        type: "Continuous integration",
+        about: "Build, test and deploy pipelines alongside the code they ship."
       },
       {
-        name: "Trello",
-        icon: "trello.png",
-        background: "#007fc9",
-        type: type[21],
-        about: "Your entire project, in a single glance."
+        name: "CircleCI",
+        icon: "circleci.svg",
+        background: "white",
+        type: "Continuous integration",
+        about: "Hosted CI/CD for building and releasing on every commit."
       },
       {
-        name: "Visual Studio Code",
-        icon: "vscode_icon.png",
-        type: type[16],
-        about:
-          "Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications."
-      },
-      {
-        name: "VIM",
-        icon: "vim-original.svg",
-        type: type[16],
-        about:
-          "Highly configurable text editor built to enable efficient text editing"
+        name: "Git",
+        icon: "git-plain.svg",
+        background: "white",
+        type: "Version control",
+        about: "Distributed version control."
       }
-      //{ name: 'Ubuntu', icon: 'ubuntu-plain.svg', background: 'white', type: type[6], about: "The leading OS for PC, tablet, phone and cloud" },
-      //{ name: 'Debian', icon: 'debian-plain.svg', background: 'white', type: type[6], about: "The Universal Operating System" },
+    ]
+  },
+  {
+    title: "Languages & Scripting",
+    items: [
+      {
+        name: "Python",
+        icon: "python-original.svg",
+        type: "Language",
+        about: "Automation, tooling and glue code."
+      },
+      {
+        name: "Go",
+        icon: "go-original.svg",
+        type: "Language",
+        about:
+          "Open source language for building simple, reliable and efficient software."
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript-original.svg",
+        type: "Language",
+        about: "Typed JavaScript — including this site."
+      },
+      {
+        name: "JavaScript",
+        icon: "javascript-original.svg",
+        background: "#f0db4f",
+        type: "Language",
+        about:
+          "Lightweight, interpreted, object-oriented language with first-class functions."
+      }
+    ]
+  },
+  {
+    title: "Data & Caching",
+    items: [
+      {
+        name: "PostgreSQL",
+        icon: "postgresql-original.svg",
+        type: "Database",
+        about: "A powerful, open source object-relational database system."
+      },
+      {
+        name: "Redis",
+        icon: "redis-original.svg",
+        background: "white",
+        type: "Cache / key-value store",
+        about: "In-memory data store used for caching and queues."
+      }
     ]
   }
 ];
 
-const Stack = props => (
+const Stack = () => (
   <div className="Stack">
     <div className="">
       <h2 className="Page__title">My Stack</h2>
     </div>
-    {groups.map((group, index) => (
-      <Group key={index} group={group} />
+    {groups.map(group => (
+      <Group key={group.title} group={group} />
     ))}
   </div>
 );
