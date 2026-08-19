@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import type { ReactNode } from 'react'
 import Helmet from './Helmet'
 
 import Navbar from './Navbar'
@@ -12,7 +13,13 @@ import 'react-awesome-button/src/styles/styles.scss'
 import './index.scss'
 import { GlobalStyles, defaultTheme } from '../styles'
 
-const Layout = ({ children, location }) => {
+interface LayoutProps {
+	children?: ReactNode
+	/** Supplied by wrapPageElement; drives the active nav link. */
+	location?: { pathname?: string }
+}
+
+const Layout = ({ children, location }: LayoutProps) => {
 	useEffect(() => {
 		require('@webcomponents/custom-elements/custom-elements.min.js')
 	}, [])
@@ -24,7 +31,7 @@ const Layout = ({ children, location }) => {
 				href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Noto+Serif:400,700,400italic,700italic|Playfair+Display:700&display=swap" 
 				rel="stylesheet"/>
 				<meta name="distribution" content="global"/>
-				<meta httpEquiv="Content-Language" content="es" />
+				<meta httpEquiv="Content-Language" content="en" />
 				<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
 				<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
 				<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />

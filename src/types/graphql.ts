@@ -29,6 +29,8 @@ export type ImageFileNode = ImageDataLike;
 export interface MarkdownFrontmatter {
   title: string;
   date: string;
+  /** Unformatted date alias, used for schema.org datePublished. */
+  isoDate?: string;
   description?: string;
   path?: string;
   tags?: string[];

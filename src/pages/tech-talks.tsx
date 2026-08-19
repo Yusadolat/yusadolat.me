@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from 'styled-components'
 
 import TechTalkCard from '../components/TechTalkCard'
@@ -12,6 +12,22 @@ const TalksWrapper = styled.div`
 	margin: 0 auto;
 `
 
+const EmptyState = styled.div`
+	max-width: 640px;
+	margin: 0 auto 80px;
+	padding: 40px 24px;
+	text-align: center;
+	border: 1px solid #e2e2e2;
+	border-radius: 6px;
+	p {
+		margin: 0 0 12px;
+		color: #6a6a6a;
+	}
+	a {
+		font-weight: 600;
+	}
+`
+
 interface TechTalksProps {
 	data: AllMarkdownQueryResult
 }
@@ -19,6 +35,7 @@ interface TechTalksProps {
 class TechTalks extends React.Component<TechTalksProps> {
 	render() {
 		const talks = this.props.data.allMarkdownRemark?.edges ?? []
+		const publishedTalks = talks.filter(({ node }) => node.frontmatter.published)
 		const siteUrl = this.props.data.site?.siteMetadata?.siteUrl ?? ''
 		return (
 			<div className="TechTalks">
@@ -33,16 +50,25 @@ class TechTalks extends React.Component<TechTalksProps> {
 							<div className="HeaderTechTalks__titlewrap Page__titlewrap text-center col-xs-12 col-md-10 col-lg-7">
 								<h1 className="HeaderTechTalks__title Page__title">Tech Talks & Speaking</h1>
 								<p className="HeaderTechTalks__description Page__description">
-									Speaking engagements, workshops, and presentations on product management,
-									technical marketing, and developer advocacy.
+									Talks, workshops and presentations on cloud infrastructure, site
+									reliability, automation and developer platforms.
 								</p>
 							</div>
 						</div>
 					</div>
 				</section>
+				{publishedTalks.length === 0 && (
+					<EmptyState>
+						<p>No talks published here yet.</p>
+						<p>
+							I&#39;m available to speak on cloud infrastructure, reliability
+							and developer platforms — <Link to="/contact">get in touch</Link>.
+						</p>
+					</EmptyState>
+				)}
 				<TalksWrapper>
 					{
-						talks.map(({ node }) => {
+						publishedTalks.map(({ node }) => {
 							if (node.frontmatter.published)
 								return (
 									<TechTalkCard

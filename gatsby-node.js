@@ -33,7 +33,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     query {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+        # Unpublished drafts previously still got a page built, which meant they
+        # were reachable by URL and listed in the sitemap even though nothing
+        # linked to them. Only published:false is excluded, so posts with no
+        # published field keep their page.
+        filter: { frontmatter: { published: { ne: false } } }
+      ) {
         edges {
           node {
             fields {

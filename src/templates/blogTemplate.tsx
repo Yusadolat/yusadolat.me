@@ -57,6 +57,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           url={`${siteUrl}${post.fields.slug}`}
           description={post.frontmatter.description}
           isPost={true}
+          datePublished={post.frontmatter.isoDate}
         />
         <Post
           {...post}
@@ -101,6 +102,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM, YYYY")
+        isoDate: date
         description
         tags
         published

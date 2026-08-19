@@ -6,7 +6,7 @@ description: >-
 path: welcome-tome-myblog
 thumbnail: /img/conceptos-basicos-redux.jpg
 date: '2018-10-27T09:56:23-05:00'
-published: true
+published: false
 style: medium-img
 tags:
   - redux
