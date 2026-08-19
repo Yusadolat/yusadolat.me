@@ -30,7 +30,22 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  // /portfolio and its three project pages were removed. They are still in
+  // Google's index and in the old sitemap, so send them somewhere relevant
+  // instead of letting them 404. gatsby-plugin-s3 turns these into S3
+  // website redirect rules at deploy time.
+  const removedPaths = [
+    "/portfolio",
+    "/projects/2018-07-cafeteria-template",
+    "/projects/2018-07-tic-tac-toe-react",
+    "/projects/2018-07-wikitv",
+  ];
+  removedPaths.forEach((fromPath) => {
+    createRedirect({ fromPath, toPath: "/about", isPermanent: true });
+    createRedirect({ fromPath: `${fromPath}/`, toPath: "/about", isPermanent: true });
+  });
   const result = await graphql(`
     query {
       allMarkdownRemark(

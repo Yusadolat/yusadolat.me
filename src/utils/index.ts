@@ -16,7 +16,6 @@ const isPostOrProject = (actualPage: string): boolean => {
 		case '':
 		case 'Blog':
 		case 'Contact':
-		case 'Portfolio':
 		case 'About':
 			return false
 		default:

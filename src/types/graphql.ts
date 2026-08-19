@@ -39,10 +39,6 @@ export interface MarkdownFrontmatter {
   thumbnail?: string;
   model?: string;
   subtitle?: string;
-  /** Portfolio project fields. */
-  stack?: string[];
-  repository?: string;
-  website?: string;
   /** Tech-talk fields, declared in gatsby-node.js createSchemaCustomization. */
   location?: string;
   event?: string;
@@ -88,15 +84,6 @@ export interface GithubInfo {
   updatedAt: string;
   totalContributions: number;
   bussy: boolean;
-}
-
-export interface PortfolioProject {
-  title: string;
-  description: string;
-  thumbnail: string;
-  tags: string[];
-  repository: string;
-  website?: string;
 }
 
 /** `allMarkdownRemark { edges { node { ... } } }` as used by the list pages. */

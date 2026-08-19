@@ -13,7 +13,7 @@ const AuthorPostFooter = props => (
 		<div className="AuthorPostFooter__body">
 			<p className="AuthorPostFooter__written by">{ props.make ? 'Written' : 'Written'} by</p>
 			<Link to="/#about" className="AuthorPostFooter__name">Yusuf Adeyemo</Link>
-			<p className="AuthorPostFooter__about">Senior DevOps Engineer and Site Reliability Engineer. I write about cloud infrastructure, automation and keeping systems up. You can see what I&#39;ve built in my <Link to="/portfolio">portfolio</Link>.</p>
+			<p className="AuthorPostFooter__about">Senior DevOps Engineer and Site Reliability Engineer. I write about cloud infrastructure, automation and keeping systems up.</p>
 			<p className="AuthorPostFooter__name"><Link to="/about">Yusuf Adeyemo</Link> <b>|</b> <span>{ props.date } · { props.timeToRead } min reading</span></p>
 			<div className="AuthorPostFooter__social">
 				{SOCIAL_LINKS.map(({ name, label, href }) => (
