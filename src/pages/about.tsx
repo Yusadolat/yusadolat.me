@@ -66,7 +66,7 @@ class About extends React.Component<AboutProps> {
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="ds"> </i>
-                    Devops{" "}
+                    DevOps{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="cp"> </i>
@@ -74,7 +74,7 @@ class About extends React.Component<AboutProps> {
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="ml"> </i>
-                    ML Ops{" "}
+                    MLOps{" "}
                   </li>{" "}
                   <li className="About__interests__item">
                     <i className="game"> </i>

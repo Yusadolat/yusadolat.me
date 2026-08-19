@@ -1,29 +1,39 @@
 import React from 'react'
 import { withPrefix } from 'gatsby'
 
+import type { StackItem } from '../types/stack'
 
-const Item = props => (
+interface ItemProps {
+	item: StackItem
+}
+
+const Item = ({ item }: ItemProps) => (
 	<div className='Stack__item' >
 		<img
 			className="Stack__item__img"
 			style={{
-				background: (props.item.background ? props.item.background : 'transparent'),
-				boxShadow: (props.item.background ? '0 0 4px #191919' : '0 0 0 transparent' )
+				background: (item.background ? item.background : 'transparent'),
+				boxShadow: (item.background ? '0 0 4px #191919' : '0 0 0 transparent' )
 			}}
-			alt="img"
-			src={ withPrefix('icons/' + props.item.icon) }/>
+			// The name is repeated immediately below in a heading, so the logo is
+			// decorative. It previously carried alt="img", which a screen reader
+			// reads aloud once per item.
+			alt=""
+			loading="lazy"
+			decoding="async"
+			src={ withPrefix('icons/' + item.icon) }/>
 		{
-			props.item.about &&
+			item.about &&
 			<div className="Stack__item__tooltip">
 				<p className="Stack__item__tooltip__text">
-					{ props.item.about }
+					{ item.about }
 					<span className="Stack__item__tooltip__arrow"></span>
 				</p>
 			</div>
 		}
-		<h3 className="Stack__item__name">{ props.item.name }</h3>
+		<h3 className="Stack__item__name">{ item.name }</h3>
 		<div className="Stack__item__typewrapper">
-			<h4 className="Stack__item__type">{props.item.type}</h4>
+			<h4 className="Stack__item__type">{item.type}</h4>
 		</div>
 
 	</div>
