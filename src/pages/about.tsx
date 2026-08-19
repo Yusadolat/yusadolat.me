@@ -76,14 +76,6 @@ class About extends React.Component<AboutProps> {
                     <i className="ml"> </i>
                     MLOps{" "}
                   </li>{" "}
-                  <li className="About__interests__item">
-                    <i className="game"> </i>
-                    ChatBOT Development{" "}
-                  </li>{" "}
-                  <li className="About__interests__item">
-                    <i className="back"> </i>
-                    Data, data and more data{" "}
-                  </li>{" "}
                 </ul>{" "}
               </div>{" "}
             </div>{" "}
