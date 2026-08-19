@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Typecheck
+        run: yarn typecheck
+
       - name: Build Gatsby site (Develop)
         run: yarn build
         env:

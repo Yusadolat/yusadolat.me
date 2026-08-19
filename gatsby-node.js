@@ -30,10 +30,33 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  // /portfolio and its three project pages were removed. They are still in
+  // Google's index and in the old sitemap, so send them somewhere relevant
+  // instead of letting them 404. gatsby-plugin-s3 turns these into S3
+  // website redirect rules at deploy time.
+  const removedPaths = [
+    "/portfolio",
+    "/projects/2018-07-cafeteria-template",
+    "/projects/2018-07-tic-tac-toe-react",
+    "/projects/2018-07-wikitv",
+  ];
+  removedPaths.forEach((fromPath) => {
+    createRedirect({ fromPath, toPath: "/about", isPermanent: true });
+    createRedirect({ fromPath: `${fromPath}/`, toPath: "/about", isPermanent: true });
+  });
   const result = await graphql(`
     query {
-      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
+      allMarkdownRemark(
+        sort: { frontmatter: { date: DESC } }
+        limit: 1000
+        # Unpublished drafts previously still got a page built, which meant they
+        # were reachable by URL and listed in the sitemap even though nothing
+        # linked to them. Only published:false is excluded, so posts with no
+        # published field keep their page.
+        filter: { frontmatter: { published: { ne: false } } }
+      ) {
         edges {
           node {
             fields {
@@ -61,7 +84,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: require.resolve(`./src/templates/blogTemplate.js`),
+      component: require.resolve(`./src/templates/blogTemplate.tsx`),
       context: {
         slug: post.node.fields.slug,
         previous,

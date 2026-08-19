@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    "strict": true,
+    // Gatsby hands page components their GraphQL results as plain objects with
+    // no generated types. Rather than scatter `any` through every page, those
+    // shapes are declared by hand in src/types/graphql.ts and the implicit-any
+    // check stays off for the handful of untyped third-party callbacks.
+    "noImplicitAny": false,
+    "noUncheckedIndexedAccess": false,
+
+    // Type checking only — Gatsby's own Babel pipeline does the compiling.
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+
+    "baseUrl": ".",
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "gatsby-*.ts", "gatsby-*.js", "plugins/**/*"],
+  "exclude": ["node_modules", "public", ".cache"]
+}

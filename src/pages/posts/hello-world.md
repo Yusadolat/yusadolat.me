@@ -5,7 +5,7 @@ description: Welcome to my blog
 path: blog/hello-world
 thumbnail: ../../assets/images/avatar2.jpeg
 date: 2024-01-30
-published: true
+published: false
 style: default
 tags:
   - welcome
